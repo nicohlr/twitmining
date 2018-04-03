@@ -6,23 +6,11 @@
 </head>
 <body>
 <h1 class="text-center"> List of tweets about 'PSG' </h1>
-	<div class="col-lg-12">
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped tablesorter">
-                <thead>
-                <tr>
-                  <th class="header"> Username <i class="icon-sort"></i></th>
-                  <th class="header"> Content <i class="icon-sort"></i></th>
-                  <th class="header"> Hashtags <i class="icon-sort"></i></th>
-                </tr>
-            </thead>
-            <tbody>
-
             {% for key in data %}
                 <tr>
                     <td>{{ key.user }}</td>
+                    <td>{{ key.date }}</td>
                     <td>{{ key.content }}</td>
-                    <td>{{ key.hashtags }}</td>
                 </tr>
             {% endfor %}
             </tbody>

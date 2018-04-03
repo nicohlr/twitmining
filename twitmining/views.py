@@ -16,9 +16,19 @@ def home(request):
 
 def tweets(request):
     headers = config.search_headers
-    search_params = {'q': 'PSG', 'result_type': 'recent', 'count': 1}
+    search_params = {'q': 'PSG', 'result_type': 'recent', 'count': 5}
     rsp = requests.get(config.search_url, headers=headers, params=search_params).json()
+    count = 0
     for x in rsp['statuses']:
         Tweet.objects.create(user=x['user']['name'], date=x['created_at'],
-                             content=x['text'], number=0).save()
+                             content=x['text'], number=count).save()
+        count += 1
     return HttpResponse(Tweet.objects.all())
+    # return render(request, 'tweets.html', Tweet.objects.all())
+
+
+def empty_database(request):
+    Tweet.objects.all().delete()
+    return HttpResponse("""
+            <h1>The database is now empty !</h1>
+        """)

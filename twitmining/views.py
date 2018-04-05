@@ -14,10 +14,11 @@ def home(request):
 
 
 def query(request):
-    tweets = t.search.tweets(q="PSG", count=10)
+    tweets = t.search.tweets(q="vache", count=10)
     for tweet in tweets['statuses']:
         TweetHtml.objects.create(code_html=t.statuses.oembed(_id=tweet['id'])['html'])
-    return render(request, './twitmining/query.html', {'data': TweetHtml.objects.all()})
+    data = [TweetHtml.objects.all()]
+    return render(request, './twitmining/query.html', data)
 
 
 def empty_database(request):

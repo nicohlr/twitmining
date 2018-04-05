@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from twitmining.models import Tweet
-import twitmining.config as config
-import requests
+from twitmining.models import TweetHtml
+from twitmining.config import t
 # Create your views here.
 
 
@@ -14,17 +13,11 @@ def home(request):
     """)
 
 
-def tweets(request):
-    headers = config.search_headers
-    search_params = {'q': 'PSG', 'result_type': 'recent', 'count': 5}
-    rsp = requests.get(config.search_url, headers=headers, params=search_params).json()
-    count = 0
-    for x in rsp['statuses']:
-        Tweet.objects.create(user=x['user']['name'], date=x['created_at'],
-                             content=x['text'], number=count).save()
-        count += 1
-    return HttpResponse(Tweet.objects.all())
-    # return render(request, 'tweets.html', Tweet.objects.all())
+def query(request):
+    tweets = t.search.tweets(q="PSG", count=10)
+    for tweet in tweets['statuses']:
+        TweetHtml.objects.create(code_html=t.statuses.oembed(_id=tweet['id'])['html'])
+    return render(request, './twitmining/query.html', {'data': TweetHtml.objects.all()})
 
 
 def empty_database(request):

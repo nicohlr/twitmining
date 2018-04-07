@@ -65,17 +65,20 @@
         </nav>
 
     <!-- Page Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h1 class="mt-5">Welcome on Twitmining !</h1>
-                    <p class="lead">A tool for analysing quickly a twitter feed</p>
-                    <ul class="list-unstyled">
-                        <li>Twimining v0.0.1</li>
-                    </ul>
+        {% block content %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1 class="mt-5">Welcome on Twitmining !</h1>
+                        <p class="lead">A tool for analysing quickly a twitter feed</p>
+                        <ul class="list-unstyled">
+                            <li>Twimining v0.0.1</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endblock %}
+
 
         <!-- Bootstrap core JavaScript -->
         <script src="{% static 'util_temp/statics/jquery/jquery.min.js' %}"></script>

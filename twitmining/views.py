@@ -6,11 +6,7 @@ from twitmining.config import t
 
 
 def home(request):
-    """ Exemple de page non valide au niveau HTML pour que l'exemple soit concis """
-    return HttpResponse("""
-        <h1>Welcome on Twitmining !</h1>
-        <p>A tool for analyse a twitter feed !</p>
-    """)
+    return render(request, 'base.html')
 
 
 def query(request):
@@ -26,6 +22,4 @@ def query(request):
 
 def empty_database(request):
     Tweet.objects.all().delete()
-    return HttpResponse("""
-            <h1>The database is now empty !</h1>
-        """)
+    return render(request, './twitmining/empty.html')

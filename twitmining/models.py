@@ -2,9 +2,9 @@ from django.db import models
 # Create your models here.
 
 
-class TweetHtml(models.Model):
-    code_html = models.CharField(max_length=1000)
+class Tweet(models.Model):
+    id_number = models.CharField(max_length=18)
 
     def __str__(self):
-        return self.code_html
+        return self.id_number
 

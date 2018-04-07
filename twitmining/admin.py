@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import TweetHtml
+from .models import Tweet
 
 # Register your models here.
 
-admin.site.register(TweetHtml)
+admin.site.register(Tweet)

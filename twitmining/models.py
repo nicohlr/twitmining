@@ -8,3 +8,9 @@ class Tweet(models.Model):
     def __str__(self):
         return self.id_number
 
+
+class Keyword(models.Model):
+    keyword = models.CharField(max_length=100, verbose_name='Please enter a keyword :')
+
+    def __str__(self):
+        return self.keyword

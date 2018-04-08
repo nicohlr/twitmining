@@ -1,17 +1,34 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from twitmining.models import Tweet
+from django.shortcuts import render, redirect
+from twitmining.models import Tweet, Keyword
 from twitmining.config import t
+from twitmining.forms import KeywordForm
+
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'base.html')
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = KeywordForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            Keyword.objects.create(keyword=form.cleaned_data['keyword']).save()
+            return redirect('query')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = KeywordForm()
+
+    return render(request, './twitmining/home.html', {'form': form})
 
 
 def query(request):
     Tweet.objects.all().delete()
-    tweets = t.search.tweets(q="django", count=10)
+    assert len(Tweet.objects.all()) == 0
+    assert len(Keyword.objects.all()) != 0, 'putain'
+    tweets = t.search.tweets(q=str(Keyword.objects.all()[0]), count=10)
+    Keyword.objects.all().delete()
     links = []
     count = 0
     for tweet in tweets['statuses']:

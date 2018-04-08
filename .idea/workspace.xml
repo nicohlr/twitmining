@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98636352-856f-4478-b989-8350b9bfca14" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/twitmining/templates/twitmining/empty.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterAnalyse/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TwitterAnalyse/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitmining/templates/twitmining/query.html" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/templates/twitmining/query.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitmining/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitmining/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,20 +13,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="793">
-              <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+            <state relative-caret-position="477">
+              <caret line="84" column="27" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="query.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="query.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/twitmining/templates/twitmining/query.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            <state relative-caret-position="230">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -109,8 +102,8 @@
         <option value="$PROJECT_DIR$/twitmining/views.py" />
         <option value="$PROJECT_DIR$/twitmining/templates/twitmining/empty.html" />
         <option value="$PROJECT_DIR$/TwitterAnalyse/settings.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/twitmining/urls.py" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
       </list>
     </option>
   </component>
@@ -285,11 +278,26 @@
       <option name="project" value="LOCAL" />
       <updated>1523126385399</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add a graphical interface using html, javascript, bootstrap, css">
+      <created>1523139711972</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1523139711972</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add a graphical interface using html, javascript, bootstrap, css">
+      <created>1523140311054</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1523140311054</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -317,7 +325,8 @@
     <MESSAGE value="Use the twitter module instead of request module, implies changing DB and templates" />
     <MESSAGE value="try to display tweets with html code from api" />
     <MESSAGE value="graphical display of tweets" />
-    <option name="LAST_COMMIT_MESSAGE" value="graphical display of tweets" />
+    <MESSAGE value="Add a graphical interface using html, javascript, bootstrap, css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a graphical interface using html, javascript, bootstrap, css" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/twitmining/views.py">
@@ -651,17 +660,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/twitmining/templates/twitmining/query.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+        <state relative-caret-position="230">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/templates/twitmining/query.html">
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        <state relative-caret-position="477">
+          <caret line="84" column="27" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
         </state>
       </provider>
     </entry>

@@ -1,85 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
 
-    <head>
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>Twitmining</title>
+<html>
+	<head>
+		<title> Twitmining </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {% load static %}
 
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+	</head>
+	<body>
 
-        <!-- Custom styles for this template -->
-        <style>
-            body {
-                padding-top: 54px;
-            }
-            @media (min-width: 992px) {
-                body {
-                    padding-top: 56px;
-                }
-            }
+		<!-- Header -->
+			<div id="header">
 
-        </style>
+				<div class="top">
 
-    </head>
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="{% static 'images/logo.png' %}" alt="" /></span>
+							<h1 id="title"> Twitmining </h1>
+						</div>
 
-    <body>
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/twitmining/" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
+								<li><a href="/admin/" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Admin</span></a></li>
+								<li><a href="twitmining/about/" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About</span></a></li>
+								<li><a href="twitmining/contact/" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="/twitmining/">Twitmining</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/twitmining/">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="twitmining/about/">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="twitmining/contact/">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+				</div>
 
-    <!-- Page Content -->
-        {% block content %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h1 class="mt-5">Welcome on Twitmining !</h1>
-                        <p class="lead">A tool for analysing quickly a twitter feed</p>
-                        <ul class="list-unstyled">
-                            <li>Twimining v0.0.1</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        {% endblock %}
+				<div class="bottom">
 
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://twitter.com/TheTwitmining" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://github.com/NicolasHoulier/twitmining" class="icon fa-github"><span class="label">Github</span></a></li>
+						</ul>
 
-        <!-- Bootstrap core JavaScript -->
-        <script src="{% static 'jquery/jquery.min.js' %}"></script>
-        <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+				</div>
 
-    </body>
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+							<header>
+								<h2 class="alt">Welcome on <strong>Twitmining</strong><br />
+                                    a responsive <a>tool</a> for analysing quickly a twitter feed<br /></h2>
+							</header>
+
+							<footer>
+								<a href="twitmining/query" class="button scrolly">Magna Aliquam</a>
+							</footer>
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Twitmining. All rights reserved.</li><li>Author: <a> Nicolas Houlier </a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollzer.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
 </html>

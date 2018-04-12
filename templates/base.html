@@ -6,12 +6,13 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {% load static %}
+		{% load static %}
 
 		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+
 	</head>
 	<body>
 
@@ -22,19 +23,22 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<span class="image avatar48"><img src="{% static 'images/logo.png' %}" alt="" /></span>
-							<h1 id="title"> Twitmining </h1>
+							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+							<h1 id="title">Twitmining</h1>
+							<p>Hyperspace Engineer</p>
 						</div>
 
 					<!-- Nav -->
+                    {% block sidebar %}
 						<nav id="nav">
+
 							<ul>
-								<li><a href="/twitmining/" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
-								<li><a href="/admin/" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Admin</span></a></li>
-								<li><a href="twitmining/about/" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About</span></a></li>
-								<li><a href="twitmining/contact/" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+                                <li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
+								<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About</span></a></li>
+								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
 							</ul>
 						</nav>
+                    {% endblock %}
 
 				</div>
 
@@ -43,7 +47,10 @@
 					<!-- Social Icons -->
 						<ul class="icons">
 							<li><a href="https://twitter.com/TheTwitmining" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 							<li><a href="https://github.com/NicolasHoulier/twitmining" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 
 				</div>
@@ -53,17 +60,64 @@
 		<!-- Main -->
 			<div id="main">
 
+				<!-- Intro -->
 					<section id="top" class="one dark cover">
 						<div class="container">
 
+
+                                {% block content %}
+                                {% endblock %}
+
+
+						</div>
+					</section>
+
+
+				<!-- About Me -->
+					<section id="about" class="three">
+						<div class="container">
+
 							<header>
-								<h2 class="alt">Welcome on <strong>Twitmining</strong><br />
-                                    a responsive <a>tool</a> for analysing quickly a twitter feed<br /></h2>
+								<h2>About Me</h2>
 							</header>
 
-							<footer>
-								<a href="twitmining/query" class="button scrolly">Magna Aliquam</a>
-							</footer>
+							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+
+							<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
+							ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
+							laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
+							parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
+							dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
+							ornare iaculis.</p>
+
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+
+							<p>Elementum sem parturient nulla quam placerat viverra
+							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
+							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
+							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
+
+							<form method="post" action="mailto:houlier.nicolas@outlook.fr">
+								<div class="row">
+									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="12u$">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="12u$">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form>
 
 						</div>
 					</section>

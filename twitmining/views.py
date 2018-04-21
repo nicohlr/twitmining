@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from twitmining.models import Tweet, Keyword
-from twitmining.util.config import t
+import twitmining.util.config as config
+import requests
 from twitmining.forms import KeywordForm
 # Create your views here.
 
@@ -29,7 +30,11 @@ def query(request):
     assert len(Keyword.objects.all()) != 0
 
     # get the tweets from the twitter API
-    tweets = t.search.tweets(q=str(Keyword.objects.all()[0]), count=10)
+    try:
+        search_params = {'q': str(Keyword.objects.all()[0]), 'result_type': 'recent', 'count': 5}
+        tweets = requests.get(config.search_url, headers=config.search_headers, params=search_params).json()
+    except ConnectionError:
+        tweets = config.t.search.tweets(q=str(Keyword.objects.all()[0]), count=10)
 
     # clean the keyword for the next query
     Keyword.objects.all().delete()
@@ -38,7 +43,7 @@ def query(request):
     links = []
     count = 0
     for tweet in tweets['statuses']:
-        Tweet.objects.create(id_number=tweet['id_str']).save()
+        Tweet.objects.create(id_number=tweet["id_str"]).save()
         links += ['https://twitter.com/TheTwitmining/status/' +
                   str(Tweet.objects.all()[count])]
         count += 1

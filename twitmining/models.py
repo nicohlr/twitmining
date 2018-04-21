@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Tweet(models.Model):
-    id_number = models.CharField(max_length=18)
+    id_number = models.CharField(max_length=30)
 
     def __str__(self):
         return self.id_number

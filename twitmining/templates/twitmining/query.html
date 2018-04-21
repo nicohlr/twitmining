@@ -1,16 +1,9 @@
 {% extends "base.html" %}
-{% block title %} Twitmining {% endblock %}
-{% block sidebar %}
-    <ul>
-        <li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
-        <li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
-    </ul>
-{% endblock %}
 {% block content %}
     <a href="/twitmining/" class="button scrolly"> Home </a><br/><br/><br/>
     {% for link in links %}
         <blockquote class="twitter-tweet tw-align-center" data-lang="fr">
-            <a href="{{ link }}"></a>
+            <a href= "{{ link }}"></a>
         </blockquote>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     {% endfor %}

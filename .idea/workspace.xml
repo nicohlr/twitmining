@@ -4,9 +4,24 @@
     <list default="true" id="98636352-856f-4478-b989-8350b9bfca14" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/css/images/ie/grad0-15.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/css/images/ie/grad0-15.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/js/ie/backgroundsize.min.htc" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/js/ie/backgroundsize.min.htc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/js/jquery.scrolly.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/js/jquery.scrolly.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/js/jquery.scrollzer.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/js/jquery.scrollzer.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/js/skel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/js/skel.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/js/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/sass/libs/_functions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/sass/libs/_functions.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/sass/libs/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/sass/libs/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/sass/libs/_skel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/sass/libs/_skel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/sass/libs/_vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/sass/libs/_vars.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitmining/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitmining/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitmining/templates/twitmining/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/templates/twitmining/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitmining/templates/twitmining/query.html" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/templates/twitmining/query.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitmining/util/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/util/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitmining/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,47 +32,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="38" column="33" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="38" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/assets/sass/main.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="210" column="25" lean-forward="true" selection-start-line="210" selection-start-column="25" selection-end-line="210" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/assets/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="1580" column="28" lean-forward="true" selection-start-line="1580" selection-start-column="28" selection-end-line="1580" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="query.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="query.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/twitmining/templates/twitmining/query.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="18" />
+            <state relative-caret-position="161">
+              <caret line="7" column="86" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Other/test2.html">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/twitmining/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="11" lean-forward="true" selection-end-line="212" selection-end-column="7" />
+            <state relative-caret-position="115">
+              <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,8 +56,20 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/twitmining/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="251">
+              <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Other/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,7 +78,31 @@
         <entry file="file://$PROJECT_DIR$/twitmining/templates/twitmining/home.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/twitmining/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/twitmining/util/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,9 +134,12 @@
       <find>backgroun</find>
       <find>f00</find>
       <find>#f00</find>
-      <find>banner</find>
       <find>aa</find>
       <find>logo</find>
+      <find>banner</find>
+      <find>images</find>
+      <find>creat</find>
+      <find>respon</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -122,7 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../Other/config.py" />
         <option value="$PROJECT_DIR$/twitmining/templates/twitmining/tweets.html" />
         <option value="$PROJECT_DIR$/twitmining/config.py" />
         <option value="$PROJECT_DIR$/../Other/example_tweets.html" />
@@ -132,24 +161,27 @@
         <option value="$PROJECT_DIR$/twitmining/templates/twitmining/empty.html" />
         <option value="$PROJECT_DIR$/TwitterAnalyse/settings.py" />
         <option value="$PROJECT_DIR$/twitmining/urls.py" />
-        <option value="$PROJECT_DIR$/twitmining/models.py" />
-        <option value="$PROJECT_DIR$/twitmining/forms.py" />
         <option value="$PROJECT_DIR$/twitmining/admin.py" />
-        <option value="$PROJECT_DIR$/twitmining/views.py" />
         <option value="$PROJECT_DIR$/../Other/test.html" />
         <option value="$USER_HOME$/Downloads/html5up-prologue/index.html" />
         <option value="$PROJECT_DIR$/../Other/test2.html" />
         <option value="$PROJECT_DIR$/static/assets/sass/main.scss" />
         <option value="$PROJECT_DIR$/static/assets/css/main.css" />
-        <option value="$PROJECT_DIR$/twitmining/templates/twitmining/home.html" />
+        <option value="$PROJECT_DIR$/../Other/garbage.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/twitmining/templates/twitmining/query.html" />
+        <option value="$PROJECT_DIR$/twitmining/models.py" />
+        <option value="$PROJECT_DIR$/twitmining/forms.py" />
+        <option value="$PROJECT_DIR$/../Other/config.py" />
+        <option value="$PROJECT_DIR$/twitmining/util/config.py" />
+        <option value="$PROJECT_DIR$/twitmining/templates/twitmining/home.html" />
+        <option value="$PROJECT_DIR$/twitmining/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
-    <option name="width" value="956" />
+    <option name="width" value="1280" />
     <option name="height" value="727" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -194,6 +226,12 @@
             <path>
               <item name="Project TwitterAnalyse" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project TwitterAnalyse" type="462c0819:PsiDirectoryNode" />
+              <item name="twitmining" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project TwitterAnalyse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project TwitterAnalyse" type="462c0819:PsiDirectoryNode" />
               <item name="TwitterAnalyse" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -232,7 +270,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.config">
+    <configuration name="config (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Project TwitterAnalyse" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/twitmining/util" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/twitmining/util/config.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Other" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -272,11 +328,13 @@
     <list>
       <item itemvalue="Python.config" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.config (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.config" />
+        <item itemvalue="Python.config (1)" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -361,18 +419,39 @@
       <option name="project" value="LOCAL" />
       <updated>1523479566337</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="minor template changes">
+      <created>1523562792958</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1523562792958</updated>
+    </task>
+    <task id="LOCAL-00012" summary="minor template changes">
+      <created>1523562871760</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1523562871760</updated>
+    </task>
+    <task id="LOCAL-00013" summary="minor template changes">
+      <created>1523564472753</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1523564472753</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.28551725" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32965517" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32965517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -400,50 +479,10 @@
     <MESSAGE value="Add a form for collecting a keyword from the user" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="change template" />
-    <option name="LAST_COMMIT_MESSAGE" value="change template" />
+    <MESSAGE value="minor template changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor template changes" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1932">
-          <caret line="84" column="27" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/templates/twitmining/query.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/twitmining/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -550,13 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Other/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/templated-transitive/index.html" />
     <entry file="file://$PROJECT_DIR$/static/bootstrap/js/bootstrap.bundle.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -601,37 +633,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/util/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/bootstrap/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3427">
           <caret line="5" column="144607" selection-start-line="5" selection-start-column="144607" selection-end-line="5" selection-end-column="144607" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -644,12 +649,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/assets/css/images/overlay.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/banner.jpg">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/static/assets/js/ie/backgroundsize.min.htc">
       <provider selected="true" editor-type-id="text-editor">
@@ -665,34 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Other/test2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="11" lean-forward="true" selection-end-line="212" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/assets/sass/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="210" column="25" lean-forward="true" selection-start-line="210" selection-start-column="25" selection-end-line="210" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/assets/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="1580" column="28" lean-forward="true" selection-start-line="1580" selection-start-column="28" selection-end-line="1580" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/images/banner.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -703,24 +674,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/twitmining/templates/twitmining/home.html">
+    <entry file="file://$PROJECT_DIR$/static/images/banner.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/css/images/overlay.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/css/images/ie/grad0-15.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Other/test2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="345">
+          <caret line="15" column="11" selection-end-line="212" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="1580" column="28" selection-start-line="1580" selection-start-column="28" selection-end-line="1580" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/sass/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-566">
+          <caret line="246" column="10" lean-forward="true" selection-start-line="246" selection-start-column="10" selection-end-line="246" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Other/garbage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twitmining/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twitmining/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twitmining/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.sqlite3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2605" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Other/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twitmining/util/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="38" column="33" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="38" selection-end-column="33" />
+        <state relative-caret-position="183">
+          <caret line="140" column="73" selection-start-line="140" selection-start-column="67" selection-end-line="140" selection-end-column="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/twitmining/templates/twitmining/query.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="18" />
+        <state relative-caret-position="161">
+          <caret line="7" column="86" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twitmining/templates/twitmining/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twitmining/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

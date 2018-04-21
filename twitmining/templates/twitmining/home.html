@@ -1,16 +1,15 @@
 {% extends "base.html" %}
-{% block title %} Twitmining {% endblock %}
 {% block content %}
     <header>
-        <h2 class="alt">Welcome on <strong>Twitmining</strong><br/>
-            a responsive <a>tool</a> for analysing quickly a twitter feed<br /></h2>
+        <h2 class="alt"> Welcome on <strong> Twitmining </strong>
+            <br/> A responsive tool for analysing quickly a twitter feed<br /></h2>
     </header>
 
     <footer>
         <form method="post">
-        {% csrf_token %}
-        {{ form }}<br/>
-        <input type="submit" value="Submit" />
-    </form>
+            {% csrf_token %}
+            {{ form }} <br/>
+            <input type="submit" value="Submit" />
+        </form>
     </footer>
 {% endblock %}

@@ -2,8 +2,6 @@ from django import forms
 from twitmining.models import Keyword
 
 
-class KeywordForm(forms.ModelForm):
+class KeywordForm(forms.Form):
+    keyword = forms.CharField(max_length=100)
 
-    class Meta:
-        model = Keyword
-        fields = '__all__'

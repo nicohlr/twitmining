@@ -24,7 +24,6 @@ auth_url = '{}oauth2/token'.format(base_url)
 auth_headers = {'Authorization': 'Basic {}'.format(b64_encoded_key),
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
 auth_resp = requests.post(auth_url, headers=auth_headers, data={'grant_type': 'client_credentials'})
-print(auth_resp)
 access_token = auth_resp.json()['access_token']
 
 search_headers = {'Authorization': 'Bearer {}'.format(access_token)}

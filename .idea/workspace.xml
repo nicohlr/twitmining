@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98636352-856f-4478-b989-8350b9bfca14" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Project TwitterAnalyse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/twitmining.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterAnalyse/.idea/TwitterAnalyse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_analyse/.idea/TwitterAnalyse.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterAnalyse/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_analyse/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterAnalyse/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_analyse/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterAnalyse/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_analyse/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterAnalyse/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_analyse/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterAnalyse/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_analyse/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterAnalyse/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_analyse/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterAnalyse/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitter_analyse/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitmining/util/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/twitmining/util/config.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +17,8 @@
       <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/twitmining/util/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+            <state relative-caret-position="324">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -105,6 +95,7 @@
         <option value="$PROJECT_DIR$/twitmining/templates/twitmining/home.html" />
         <option value="$PROJECT_DIR$/twitmining/views.py" />
         <option value="$USER_HOME$/PycharmProjects/Other/config.py" />
+        <option value="$PROJECT_DIR$/twitmining/util/passwords.txt" />
         <option value="$PROJECT_DIR$/twitmining/util/config.py" />
       </list>
     </option>
@@ -126,6 +117,26 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="twitmining" type="b2602c69:ProjectViewProjectNode" />
+              <item name="twitmining" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="twitmining" type="b2602c69:ProjectViewProjectNode" />
+              <item name="twitmining" type="462c0819:PsiDirectoryNode" />
+              <item name="twitmining" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="twitmining" type="b2602c69:ProjectViewProjectNode" />
+              <item name="twitmining" type="462c0819:PsiDirectoryNode" />
+              <item name="twitmining" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="twitmining" type="b2602c69:ProjectViewProjectNode" />
+              <item name="twitmining" type="462c0819:PsiDirectoryNode" />
+              <item name="TwitterAnalyse" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="twitmining" type="b2602c69:ProjectViewProjectNode" />
               <item name="Other" type="462c0819:PsiDirectoryNode" />
@@ -352,12 +363,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523564472753</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add passwords in separated file for confidentiality">
+      <created>1525792893404</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1525792893404</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -392,19 +409,10 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="change template" />
     <MESSAGE value="minor template changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor template changes" />
+    <MESSAGE value="add passwords in separated file for confidentiality" />
+    <option name="LAST_COMMIT_MESSAGE" value="add passwords in separated file for confidentiality" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/twitmining/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/twitmining/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -629,10 +637,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/twitmining/util/passwords.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/twitmining/util/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+        <state relative-caret-position="324">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>

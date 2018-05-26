@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Other/.idea/Other.iml" filepath="$PROJECT_DIR$/../Other/.idea/Other.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/Project TwitterAnalyse.iml" filepath="$PROJECT_DIR$/.idea/Project TwitterAnalyse.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/Other/.idea/Other.iml" filepath="$USER_HOME$/PycharmProjects/Other/.idea/Other.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/twitmining.iml" filepath="$PROJECT_DIR$/.idea/twitmining.iml" />
     </modules>
   </component>
 </project>

@@ -75,7 +75,7 @@
       <find>sta</find>
       <find>staticfiles</find>
       <find>magna</find>
-      <find>Jane Doe</find>
+      <find />
       <find>backgroun</find>
       <find>f00</find>
       <find>#f00</find>
@@ -128,8 +128,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="282" />
     <option name="y" value="23" />
-    <option name="width" value="1280" />
+    <option name="width" value="1003" />
     <option name="height" value="727" />
   </component>
   <component name="ProjectLevelVcsManager">

@@ -104,3 +104,9 @@ venv.bak/
 .mypy_cache/
 
 ./twtmining/util/passwords.txt
+passwords.txt
+
+__
+
+*.pyc
+*.pyo

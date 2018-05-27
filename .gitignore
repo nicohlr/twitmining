@@ -110,4 +110,4 @@ venv.bak/
 .mypy_cache/
 
 ./twitmining/util/passwords.txt
-*.passwords.txt
+*/passwords.txt

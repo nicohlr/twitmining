@@ -39,10 +39,10 @@ def query(request):
 
     # get the tweets from the twitter API
     try:
-        search_params = {'q': keyword, 'result_type': 'recent', 'count': 1000}
+        search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
         tweets = requests.get(config.search_url, headers=config.search_headers, params=search_params).json()
     except ConnectionError:
-        tweets = config.t.search.tweets(q=keyword, count=1000)
+        tweets = config.t.search.tweets(q=keyword, count=100)
 
     # create links for displaying tweets in the html template
     for tweet in tweets['statuses']:
@@ -75,7 +75,6 @@ def query(request):
     links = []
 
     for relevant_tweet in RelevantTweet.objects.all():
-        print(relevant_tweet.score)
         links += [str(relevant_tweet.link)]
 
     # clean the database for the next query

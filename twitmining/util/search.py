@@ -19,18 +19,18 @@ class SearchEngine:
 
                     tweet.score += 2
 
-            if tweet.user_mentions is not None:
+            if tweet.user_mentions != "":
 
                 tweet.score += 2
 
             if tweet.verified:
 
-                tweet.score += 5
+                tweet.score += 3
 
             if tweet.location != "":
 
                 tweet.score += 5
 
-            if tweet.score > 5:
+            if tweet.score > 3:
 
                 RelevantTweet.objects.create(link=tweet.link, score=tweet.score)

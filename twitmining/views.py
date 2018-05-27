@@ -37,15 +37,24 @@ def query(request):
     keyword = str(Keyword.objects.all()[0])
     Keyword.objects.all().delete()
 
+    statuses = []
+    lowest_id = float("inf")
     # get the tweets from the twitter API
-    try:
-        search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
+    for count in range(10):
+
+        search_params = {'q': keyword, 'result_type': 'recent', 'count': 100, 'max_id': lowest_id-1}
+
         tweets = requests.get(config.search_url, headers=config.search_headers, params=search_params).json()
-    except ConnectionError:
-        tweets = config.t.search.tweets(q=keyword, count=100)
+
+        lowest_id = tweets['statuses'][len(tweets['statuses'])-1]["id"]
+
+        print(lowest_id)
+        statuses += tweets['statuses']
+
+    print(len(statuses))
 
     # create links for displaying tweets in the html template
-    for tweet in tweets['statuses']:
+    for tweet in statuses:
 
         try:
             place = tweet["user"]["place"]

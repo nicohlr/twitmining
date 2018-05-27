@@ -31,7 +31,7 @@ def query(request):
 
     # get the tweets from the twitter API
     try:
-        search_params = {'q': str(Keyword.objects.all()[0]), 'result_type': 'recent', 'count': 5}
+        search_params = {'q': str(Keyword.objects.all()[0]), 'result_type': 'recent', 'count': 10}
         tweets = requests.get(config.search_url, headers=config.search_headers, params=search_params).json()
     except ConnectionError:
         tweets = config.t.search.tweets(q=str(Keyword.objects.all()[0]), count=10)

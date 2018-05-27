@@ -1,19 +1,19 @@
-from twitmining.models import Tweet, Keyword, RelevantTweet
+from twitmining.models import Tweet, RelevantTweet
 
 
 class SearchEngine:
 
-    def __init__(self):
+    def __init__(self, keyword):
         self.tweets = Tweet.objects.all()
-        self.keyword = str(Keyword.objects.all()[0])
+        self.keyword = keyword
 
     def score_tweets(self):
 
         for tweet in Tweet.objects.all():
 
-            tweet.score += tweet.count(self.keyword)
+            tweet.score += tweet.text.count(self.keyword)
 
-            for hashtag in tweet.hashtag:
+            for hashtag in tweet.hashtags:
 
                 if hashtag.count(self.keyword) != 0:
 
@@ -31,6 +31,6 @@ class SearchEngine:
 
                 tweet.score += 5
 
-            if tweet.score > 10:
+            if tweet.score > 5:
 
-                RelevantTweet.objects.create(link=tweet.link)
+                RelevantTweet.objects.create(link=tweet.link, score=tweet.score)

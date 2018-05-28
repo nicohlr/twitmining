@@ -38,46 +38,42 @@ def query(request):
     Keyword.objects.all().delete()
 
     statuses = []
-    lowest_id = float("inf")
+    base_url = config.search_url
+    url = base_url
+
     # get the tweets from the twitter API
     for count in range(10):
 
-        search_params = {'q': keyword, 'result_type': 'recent', 'count': 100, 'max_id': lowest_id-1}
+        search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
 
-        tweets = requests.get(config.search_url, headers=config.search_headers, params=search_params).json()
+        tweets = requests.get(url=url, headers=config.search_headers, params=search_params).json()
 
-        lowest_id = tweets['statuses'][len(tweets['statuses'])-1]["id"]
+        url = base_url + tweets['search_metadata']['next_results']
 
-        print(lowest_id)
-        statuses += tweets['statuses']
+        for tweet in tweets['statuses']:
 
-    print(len(statuses))
+            try:
+                place = tweet["user"]["place"]
+            except KeyError:
+                place = ""
 
-    # create links for displaying tweets in the html template
-    for tweet in statuses:
+            hashtags = ""
+            user_mentions = ""
 
-        try:
-            place = tweet["user"]["place"]
-        except KeyError:
-            place = ""
+            for hashtag in tweet["entities"]["hashtags"]:
+                hashtags = hashtags + str(hashtag["text"])
 
-        hashtags = ""
-        user_mentions = ""
+            for user_mention in tweet["entities"]["user_mentions"]:
+                user_mentions = user_mentions + str(user_mention)
 
-        for hashtag in tweet["entities"]["hashtags"]:
-            hashtags = hashtags + str(hashtag["text"])
-
-        for user_mention in tweet["entities"]["user_mentions"]:
-            user_mentions = user_mentions + str(user_mention)
-
-        Tweet.objects.create(id_number=tweet["id_str"],
-                             text=tweet["text"],
-                             hashtags=hashtags,
-                             user_mentions=user_mentions,
-                             verified=tweet["user"]["verified"],
-                             location=place,
-                             link='https://twitter.com/TheTwitmining/status/' + tweet["id_str"],
-                             score=0).save()
+            Tweet.objects.create(id_number=tweet["id_str"],
+                                 text=tweet["text"],
+                                 hashtags=hashtags,
+                                 user_mentions=user_mentions,
+                                 verified=tweet["user"]["verified"],
+                                 location=place,
+                                 link='https://twitter.com/TheTwitmining/status/' + tweet["id_str"],
+                                 score=0).save()
 
     search_engine = SearchEngine(keyword)
     search_engine.score_tweets()

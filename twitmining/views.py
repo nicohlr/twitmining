@@ -37,7 +37,6 @@ def query(request):
     keyword = str(Keyword.objects.all()[0])
     Keyword.objects.all().delete()
 
-    statuses = []
     base_url = config.search_url
     url = base_url
 

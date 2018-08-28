@@ -123,3 +123,9 @@ venv.bak/
 *.scss
 
 .static
+.vscode/settings.json
+TwitterAnalyse/.DS_Store
+static/images/.DS_Store
+static/.DS_Store
+twitmining/migrations/.DS_Store
+.DS_Store

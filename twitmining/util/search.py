@@ -1,6 +1,4 @@
 import pandas as pd
-from twitmining.models import Tweet, RelevantTweet
-
 
 class SearchEngine:
     """

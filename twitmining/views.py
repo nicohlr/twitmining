@@ -46,8 +46,11 @@ def query(request):
         search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
 
         tweets = requests.get(url=url, headers=config.search_headers, params=search_params).json()
-
-        url = base_url + tweets['search_metadata']['next_results']
+        
+        try:
+            url = base_url + tweets['search_metadata']['next_results']
+        except KeyError:
+            pass
 
         for tweet in tweets['statuses']:
 

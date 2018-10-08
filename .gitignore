@@ -111,7 +111,6 @@ venv.bak/
 *.txt
 *.css
 *.jpg
-*.png
 *.otf
 *.eot
 *.svg
@@ -129,3 +128,4 @@ static/images/.DS_Store
 static/.DS_Store
 twitmining/migrations/.DS_Store
 .DS_Store
+static

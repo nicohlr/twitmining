@@ -6,4 +6,4 @@ In an athletic sprint competition, getting a bad start often mortgages the good 
 
 Imagine that it is possible to capture this information, to keep only the parts related to a situation and to evaluate the relevance of the information by crossing. This would potentially provide a formidable tool to inform the tactical and strategic decisions of rescue teams. This type of data mining is already widely used in many contexts. The objective of this project is to demonstrate this concept.
 
-![GitHub Logo](/img/twitmining.png)
+![GitHub Logo](./img/twitmining.png)

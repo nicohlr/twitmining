@@ -1,14 +1,21 @@
-from django.shortcuts import render, redirect
-from twitmining.models import Tweet, Keyword, RelevantTweet
-import twitmining.util.config as config
+import pandas as pd
 import requests
+from django.shortcuts import render, redirect
+
+import twitmining.util.config as cg
+from twitmining.models import Keyword
 from twitmining.forms import KeywordForm
 from twitmining.util.search import SearchEngine
 
-# Create your views here.
-
 
 def home(request):
+    """
+    Generate a form in which the user will fill the keyword(s) which will be used for the request
+
+    Returns:
+        [type]: A render object to pass linkthe form to the home.html file
+    """
+
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -26,32 +33,40 @@ def home(request):
 
 
 def query(request):
+    """
+    Create a query from keyword form
 
-    Tweet.objects.all().delete()
-    RelevantTweet.objects.all().delete()
+    Returns:
+        Django.render: A render object to pass links of relevant tweets to the query.html file
+    """
 
-    assert len(Tweet.objects.all()) == 0
-    assert len(RelevantTweet.objects.all()) == 0
     assert len(Keyword.objects.all()) == 1
 
     keyword = str(Keyword.objects.all()[0])
     Keyword.objects.all().delete()
 
-    base_url = config.search_url
+    # Instantiate all variables, the dataframe will contain all tweets related to the request
+    count = 0
+    base_url = cg.search_url
     url = base_url
+    twit_df = pd.DataFrame(columns=["id_number", "text", "hashtags",
+                                    "user_mentions", "verified", "location", "link", "score"])
 
-    # get the tweets from the twitter API
-    for count in range(10):
+    # get the tweets from the twitter API, a thousand tweets maximum (10 requests * 100 tweets)
+    while count < 10:
 
+        # Twitter limits the number of tweets by request at 100
         search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
 
-        tweets = requests.get(url=url, headers=config.search_headers, params=search_params).json()
-        
+        tweets = requests.get(
+            url=url, headers=cg.search_headers, params=search_params).json()
+
         try:
             url = base_url + tweets['search_metadata']['next_results']
         except KeyError:
             pass
 
+        # Process each tweet one by one by adding it to the dataframe
         for tweet in tweets['statuses']:
 
             try:
@@ -68,24 +83,30 @@ def query(request):
             for user_mention in tweet["entities"]["user_mentions"]:
                 user_mentions = user_mentions + str(user_mention)
 
-            Tweet.objects.create(id_number=tweet["id_str"],
-                                 text=tweet["text"],
-                                 hashtags=hashtags,
-                                 user_mentions=user_mentions,
-                                 verified=tweet["user"]["verified"],
-                                 location=place,
-                                 link='https://twitter.com/TheTwitmining/status/' + tweet["id_str"],
-                                 score=0).save()
+            setter = {"id_number": tweet["id_str"],
+                      "text": tweet["text"],
+                      "hashtags": hashtags,
+                      "user_mentions": user_mentions,
+                      "verified": tweet["user"]["verified"],
+                      "location": place,
+                      "link": 'https://twitter.com/TheTwitmining/status/' + tweet["id_str"],
+                      "score": 0}
 
-    search_engine = SearchEngine(keyword)
-    search_engine.score_tweets()
-    links = []
+            twit_df = twit_df.append(setter, ignore_index=True)
 
-    for relevant_tweet in RelevantTweet.objects.all():
-        links += [str(relevant_tweet.link)]
+        # Break the loop if all related tweets have already been found
+        if len(tweets['statuses']) < 100:
+            break
+        else:
+            count += 1
 
-    # clean the database for the next query
-    Tweet.objects.all().delete()
-    RelevantTweet.objects.all().delete()
+    # drop duplicate to avoid displaying the same tweet twice
+    twit_df = twit_df.drop_duplicates()
+
+    search_engine = SearchEngine(keyword, twit_df)
+    relevant = search_engine.score_tweets()
+
+    #links = [str(relevant_tweet[link]) for relevant_tweet in relevant]
+    links = list()
 
     return render(request, './twitmining/query.html', {'links': links})

@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-    <header>
-        <h2 class="alt"> Welcome on <strong> Twitmining </strong>
-            <br/> A responsive tool for analysing quickly a twitter feed<br /></h2>
-    </header>
+<header>
+    <h2 class="alt"> Welcome on <strong> Twitmining </strong>
+        <br> A responsive tool for analyzing quickly a twitter feed<br></h2>
+</header>
 
-    <footer>
-        <form method="post">
-            {% csrf_token %}
-            {{ form }} <br/>
-            <input type="submit" value="Submit" />
-        </form>
-    </footer>
+<footer>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }} <br><br>
+        <input class="fa fa-input" type="submit" value="&#xf002; Search">
+    </form>
+</footer>
 {% endblock %}

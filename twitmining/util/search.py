@@ -10,7 +10,7 @@ class SearchEngine:
         self.keyword = keyword
         self.relevant = list()
     
-    def preprocess_tweets():
+    def preprocess_tweets(self):
         """
         This class will preprocess the dataframe by doing some actions to make easier the scoring
         """

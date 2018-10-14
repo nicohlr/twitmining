@@ -1,145 +1,150 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title> Twitmining </title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		{% load static %}
+<head>
+	<title>Twitmining</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
-		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+	{% load static %}
 
-	</head>
-	<body>
+	<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
 
-		<!-- Header -->
-			<div id="header">
+</head>
 
-				<div class="top">
+<body>
 
-					<!-- Logo -->
-						<div id="logo">
-							<!--<span class="image avatar48"><img src="{% static '/avatar.jpg' %}" alt="" /></span>-->
-							<h1 id="title">Twitmining</h1>
-							<p>IMT Atlantique</p>
-						</div>
+	<!-- Header -->
+	<div id="header">
 
-					<!-- Nav -->
-						<nav id="nav">
+		<div class="top">
 
-							<ul>
-                                <li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
-								<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About</span></a></li>
-								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
-							</ul>
-						</nav>
-
-				</div>
-
-				<div class="bottom">
-
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="https://twitter.com/TheTwitmining" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="https://github.com/NicolasHoulier/twitmining" class="icon fa-github"><span class="label">Github</span></a></li>
-							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-
-				</div>
-
+			<!-- Logo -->
+			<div id="logo">
+				<!--<span class="image avatar48"><img src="{% static '/avatar.jpg' %}" alt="" /></span>-->
+				<h1 id="title">Twitmining</h1>
+				<p>Nicolas Houlier</p>
 			</div>
 
-		<!-- Main -->
-			<div id="main">
+			<!-- Nav -->
+			<nav id="nav">
 
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
+				<ul>
+					<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
+					<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About</span></a></li>
+					<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="bottom">
+
+			<!-- Social Icons -->
+			<ul class="icons">
+				<li><a href="https://twitter.com/TheTwitmining" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="https://github.com/NicolasHoulier/twitmining" class="icon fa-github"><span class="label">Github</span></a></li>
+				<li><a href="#contact" class="icon fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+
+		</div>
+
+	</div>
+
+	<!-- Main -->
+	<div id="main">
+
+		<!-- Intro -->
+		<section id="top" class="one dark cover">
+			<div class="container">
 
 
-                                {% block content %}
-                                {% endblock %}
+				{% block content %}
+				{% endblock %}
 
-
-						</div>
-					</section>
-
-
-				<!-- About Me -->
-					<section id="about" class="three">
-						<div class="container">
-
-							<header>
-								<h2>About</h2>
-							</header>
-
-							<!--<a href="#" class="image featured"><img src="{% static 'images/pic08.jpg' %}" alt="" /></a>-->
-
-							<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-							ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-							laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-							parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-							dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-							ornare iaculis.</p>
-
-						</div>
-					</section>
-
-				<!-- Contact -->
-					<section id="contact" class="four">
-						<div class="container">
-
-							<header>
-								<h2>Contact</h2>
-							</header>
-
-							<p>Elementum sem parturient nulla quam placerat viverra
-							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
-							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
-
-							<form method="post" action="mailto:houlier.nicolas@outlook.fr">
-								<div class="row">
-									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
-									<div class="12u$">
-										<textarea name="message" placeholder="Message"></textarea>
-									</div>
-									<div class="12u$">
-										<input type="submit" value="Send Message" />
-									</div>
-								</div>
-							</form>
-
-						</div>
-					</section>
 
 			</div>
+		</section>
 
-		<!-- Footer -->
-			<div id="footer">
 
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; Twitmining. All rights reserved.</li><li>Author: <a> Nicolas Houlier </a></li>
-					</ul>
+		<!-- About Me -->
+		<section id="about" class="three">
+			<div class="container">
+
+				<header>
+					<h2>About</h2>
+				</header>
+
+				<!--<a href="#" class="image featured"><img src="{% static 'images/pic08.jpg' %}" alt="" /></a>-->
+
+				<p style="text-align:justify"> In an athletic sprint competition, getting a bad start often jeopardizes the good course of the race. The same
+					is true for crisis management: the first few hours of operation determine the success of subsequent operations.
+					However, making the right decisions early on is difficult because the information is fragmented, incomplete and
+					even false. In this purpose, the use of Twitter is a new source of information. Indeed, when disasters occur,
+					witnesses and victims quickly disseminate massive but not always reliable or easy to interpret information on this
+					social network.<br><br>
+
+					Imagine that it is possible to capture this information, to keep only the parts related to a situation and to
+					evaluate the relevance of the information by crossing. This would potentially provide a formidable tool to inform
+					the tactical and strategic decisions of rescue teams. This type of data mining is already widely used in many
+					contexts. The objective of this project is to demonstrate this concept.</p>
 
 			</div>
+		</section>
 
-		<!-- Scripts -->
-			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
-			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
-			<script src="{% static 'assets/js/jquery.scrollzer.min.js' %}"></script>
-			<script src="{% static 'assets/js/skel.min.js' %}"></script>
-			<script src="{% static 'assets/js/util.js' %}"></script>
-			<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
-			<script src="{% static 'assets/js/main.js' %}"></script>
+		<!-- Contact -->
+		<section id="contact" class="four">
+			<div class="container">
 
-	</body>
+				<header>
+					<h2>Contact</h2>
+				</header>
+
+				<p>If you have any question or if you want to support or contribute by any way to the project, please feel free to
+					contact me to discuss about it.</p>
+
+				<form method="post" action="mailto:houlier.nicolas@outlook.fr">
+					<div class="row">
+						<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+						<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+						<div class="12u$">
+							<textarea name="message" placeholder="Message"></textarea>
+						</div>
+						<div class="12u$">
+							<input class="fa fa-input" type="submit" value="&#xf0e0; Send message">
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<div id="footer">
+
+		<!-- Copyright -->
+		<ul class="copyright">
+			<li>&copy; Twitmining. All rights reserved.</li>
+			<li>Author: <a> Nicolas Houlier </a></li>
+		</ul>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.scrollzer.min.js' %}"></script>
+	<script src="{% static 'assets/js/skel.min.js' %}"></script>
+	<script src="{% static 'assets/js/util.js' %}"></script>
+	<!--[if lte IE 8]><script src="{% static 'assets/js/ie/respond.min.js' %}"></script><![endif]-->
+	<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
 </html>

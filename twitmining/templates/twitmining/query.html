@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-    <a href="/twitmining/" class="button scrolly"> Home </a><br/><br/><br/>
-    {% for link in links %}
-        <blockquote class="twitter-tweet tw-align-center" data-lang="fr">
-            <a href= "{{ link }}"></a>
-        </blockquote>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    {% endfor %}
+<a href="/twitmining/" class="button scrolly">New search</a><br><br><br>
+{% for link in links %}
+<blockquote class="twitter-tweet tw-align-center" data-lang="fr">
+    <a href="{{ link }}"></a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endfor %}
 {% endblock %}

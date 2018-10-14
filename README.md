@@ -6,7 +6,7 @@ In an athletic sprint competition, getting a bad start often jeopardizes the goo
 
 Imagine that it is possible to capture this information, to keep only the parts related to a situation and to evaluate the relevance of the information by crossing. This would potentially provide a formidable tool to inform the tactical and strategic decisions of rescue teams. This type of data mining is already widely used in many contexts. The objective of this project is to demonstrate this concept.
 
-## 1. twitmining (social mining using Twitter API)
+## twitmining (social mining using Twitter API)
 
 Data mining for analyzing a twitter feed using keywords.
 Just enter your keyword in the search bar, the web application will do the remaining work by requesting twitter API, sort all received tweets by relevance and display it to you.

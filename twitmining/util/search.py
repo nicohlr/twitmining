@@ -24,7 +24,7 @@ class SearchEngine:
         """
 
 
-        for tweet in Tweet.objects.all():
+        """for tweet in Tweet.objects.all():
 
             tweet.score += tweet.text.count(self.keyword)
 
@@ -45,4 +45,4 @@ class SearchEngine:
             if tweet.score > 3 and tweet not in self.relevant:
                 self.relevant.append(tweet)
                 RelevantTweet.objects.create(
-                    link=tweet.link, score=tweet.score)
+                    link=tweet.link, score=tweet.score)"""

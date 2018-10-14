@@ -1,10 +1,22 @@
 {% extends "base.html" %}
+{% block nav %}
+<li><a href="/twitmining/" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-refresh">New search</span></a></li>
+{% endblock %}
 {% block content %}
-<a href="/twitmining/" class="button scrolly">New search</a><br><br><br>
-{% for link in links %}
-<blockquote class="twitter-tweet tw-align-center" data-lang="fr">
-    <a href="{{ link }}"></a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-{% endfor %}
+<div id="main">
+
+    <section id="top" class="one dark cover">
+        <div class="container">
+
+            {% for link in links %}
+                <blockquote class="twitter-tweet tw-align-center" data-lang="fr">
+                    <a href="{{ link }}"></a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            {% endfor %}
+
+        </div>
+    </section>
+
+</div>
 {% endblock %}

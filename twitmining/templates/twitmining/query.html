@@ -3,20 +3,22 @@
 <li><a href="/twitmining/" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-refresh">New search</span></a></li>
 {% endblock %}
 {% block content %}
-<div id="main">
-
-    <section id="top" class="one dark cover">
-        <div class="container">
-
-            {% for link in links %}
-                <blockquote class="twitter-tweet tw-align-center" data-lang="fr">
-                    <a href="{{ link }}"></a>
-                </blockquote>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            {% endfor %}
-
-        </div>
-    </section>
-
-</div>
+    <div id="main">
+        <section id="top" class="one dark cover">
+            <div class="container">
+                {% for link in links %}
+                    {% if forloop.counter0|divisibleby:"2" %}
+                        <blockquote class="twitter-tweet tw-align-left" data-lang="fr">
+                    {% else %}
+                        <blockquote class="twitter-tweet tw-align-center" data-lang="fr"></blockquote>
+                    {% endif %}
+                        <a href="{{ link }}"></a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
 {% endblock %}
+
+<a class="twitter-timeline" href="https://twitter.com/TwitterDev/lists/national-parks?ref_src=twsrc%5Etfw">A Twitter List by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

@@ -105,6 +105,7 @@ def query(request):
                       "is_retweeted": is_retweeted,
                       "favorite_count": tweet['favorite_count'],
                       "retweet_count": tweet['retweet_count'],
+                      "keyword_occurrence": tweet["text"].count(keyword),
                       "score": 0}
 
             twit_df = twit_df.append(setter, ignore_index=True)
@@ -118,12 +119,23 @@ def query(request):
     dump_on_disk({'sample_request': sample_request})
 
     # drop duplicate to avoid displaying the same tweet twice
-    twit_df = twit_df.drop_duplicates()
+    #twit_df = twit_df.drop_duplicates(subset='text')
+    twit_df.to_csv('twit.csv')
 
     search_engine = SearchEngine(keyword, twit_df)
-    relevant = search_engine.score_tweets()
 
     #links = [str(relevant_tweet[link]) for relevant_tweet in relevant]
-    links = list()
+    links = ['https://twitter.com/TheTwitmining/status/1051895052467888131',
+            'https://twitter.com/TheTwitmining/status/1051895033962598401',
+            'https://twitter.com/TheTwitmining/status/1051895029306970112',
+            'https://twitter.com/TheTwitmining/status/1051894957802278912',
+            'https://twitter.com/TheTwitmining/status/1051894930069708801',
+            'https://twitter.com/TheTwitmining/status/1051894911597973504',
+            'https://twitter.com/TheTwitmining/status/1051894720132251650',
+            'https://twitter.com/TheTwitmining/status/1051894562011193346',
+            'https://twitter.com/TheTwitmining/status/1051894522786054145',
+            'https://twitter.com/TheTwitmining/status/1051894490699653120']
+
+    # links = {pos : link for pos, link in enumerate(links_list)} 
 
     return render(request, './twitmining/query.html', {'links': links})

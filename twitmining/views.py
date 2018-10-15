@@ -1,5 +1,6 @@
 import pandas as pd
 import requests
+import random
 from django.shortcuts import render, redirect
 
 import twitmining.util.config as cg
@@ -49,6 +50,7 @@ def query(request):
     # Instantiate all variables, the dataframe will contain all tweets related to the request
     count = 0
     complete_request = dict()
+    sample_request = random.randint(0, 9)
     base_url = cg.search_url
     url = base_url
     twit_df = pd.DataFrame(columns=["id_number", "text", "hashtags",
@@ -63,6 +65,9 @@ def query(request):
         tweets = requests.get(
             url=url, headers=cg.search_headers, params=search_params).json()
 
+        if count == sample_request:
+            sample_request = tweets['statuses'][:20]
+
         complete_request['request_' + str(count)] = tweets
 
         try:
@@ -72,28 +77,34 @@ def query(request):
 
         # Process each tweet one by one by adding it to the dataframe
         for tweet in tweets['statuses']:
+            
+            is_retweeted = False
 
             try:
                 place = tweet["user"]["place"]
             except KeyError:
                 place = ""
 
-            hashtags = ""
-            user_mentions = ""
+            hashtags = str()
 
-            for hashtag in tweet["entities"]["hashtags"]:
-                hashtags = hashtags + str(hashtag["text"])
+            if len(tweet["entities"]["hashtags"]) != 0:
+                for hashtag in tweet["entities"]["hashtags"]:
+                    hashtags = hashtags + hashtag["text"]        
 
-            for user_mention in tweet["entities"]["user_mentions"]:
-                user_mentions = user_mentions + str(user_mention)
+            if tweet["text"][:2].strip() == "RT":
+                is_retweeted = True
 
             setter = {"id_number": tweet["id_str"],
+                      "created_at": tweet["created_at"],
                       "text": tweet["text"],
                       "hashtags": hashtags,
-                      "user_mentions": user_mentions,
+                      "user_followers": tweet["user"]["followers_count"],
                       "verified": tweet["user"]["verified"],
                       "location": place,
                       "link": 'https://twitter.com/TheTwitmining/status/' + tweet["id_str"],
+                      "is_retweeted": is_retweeted,
+                      "favorite_count": tweet['favorite_count'],
+                      "retweet_count": tweet['retweet_count'],
                       "score": 0}
 
             twit_df = twit_df.append(setter, ignore_index=True)
@@ -104,7 +115,7 @@ def query(request):
         else:
             count += 1
 
-    dump_on_disk(complete_request)
+    dump_on_disk({'sample_request': sample_request})
 
     # drop duplicate to avoid displaying the same tweet twice
     twit_df = twit_df.drop_duplicates()

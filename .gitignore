@@ -130,3 +130,4 @@ static/.DS_Store
 twitmining/migrations/.DS_Store
 .DS_Store
 static
+twitmining/util/history

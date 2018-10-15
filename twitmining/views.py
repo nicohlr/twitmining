@@ -3,6 +3,7 @@ import requests
 from django.shortcuts import render, redirect
 
 import twitmining.util.config as cg
+from twitmining.util.dump import dump_on_disk
 from twitmining.models import Keyword
 from twitmining.forms import KeywordForm
 from twitmining.util.search import SearchEngine
@@ -47,6 +48,7 @@ def query(request):
 
     # Instantiate all variables, the dataframe will contain all tweets related to the request
     count = 0
+    complete_request = dict()
     base_url = cg.search_url
     url = base_url
     twit_df = pd.DataFrame(columns=["id_number", "text", "hashtags",
@@ -60,6 +62,8 @@ def query(request):
 
         tweets = requests.get(
             url=url, headers=cg.search_headers, params=search_params).json()
+
+        complete_request['request_' + str(count)] = tweets
 
         try:
             url = base_url + tweets['search_metadata']['next_results']
@@ -99,6 +103,8 @@ def query(request):
             break
         else:
             count += 1
+
+    dump_on_disk(complete_request)
 
     # drop duplicate to avoid displaying the same tweet twice
     twit_df = twit_df.drop_duplicates()

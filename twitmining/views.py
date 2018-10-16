@@ -98,6 +98,7 @@ def query(request):
                       "created_at": tweet["created_at"],
                       "text": tweet["text"],
                       "hashtags": hashtags,
+                      "user_name": tweet["user"]["screen_name"],
                       "user_followers": tweet["user"]["followers_count"],
                       "verified": tweet["user"]["verified"],
                       "location": place,
@@ -127,7 +128,6 @@ def query(request):
     #links = [str(relevant_tweet[link]) for relevant_tweet in relevant]
     links = ['https://twitter.com/TheTwitmining/status/1051895052467888131',
             'https://twitter.com/TheTwitmining/status/1051895033962598401',
-            'https://twitter.com/TheTwitmining/status/1051895029306970112',
             'https://twitter.com/TheTwitmining/status/1051894957802278912',
             'https://twitter.com/TheTwitmining/status/1051894930069708801',
             'https://twitter.com/TheTwitmining/status/1051894911597973504',

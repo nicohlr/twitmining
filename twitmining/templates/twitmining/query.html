@@ -1,24 +1,21 @@
 {% extends "base.html" %}
 {% block nav %}
-<li><a href="/twitmining/" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-refresh">New search</span></a></li>
+<li><a href="/twitmining/" id="search-link" class="skel-layers-ignoreHref" style="color: #fff;"
+    onmouseover="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.boxShadow='inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125)';this.style.color='#FF9F1C';" 
+    onmouseout="this.style.background='';this.style.color='#fff';this.style.boxShadow=''">
+<span class="icon fa-refresh">
+    New search
+</span></a></li>
 {% endblock %}
 {% block content %}
     <div id="main">
-        <section id="top" class="one dark cover">
-            <div class="container">
+        <section id="top" class="one dark cover" style="padding: 0">
                 {% for link in links %}
-                    {% if forloop.counter0|divisibleby:"2" %}
-                        <blockquote class="twitter-tweet tw-align-left" data-lang="fr">
-                    {% else %}
-                        <blockquote class="twitter-tweet tw-align-center" data-lang="fr"></blockquote>
-                    {% endif %}
-                        <a href="{{ link }}"></a>
+                    <blockquote class="twitter-tweet tw-align-left">
+                        <a  href="{{ link }}"></a>
                     </blockquote>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 {% endfor %}
-            </div>
         </section>
     </div>
 {% endblock %}
-
-<a class="twitter-timeline" href="https://twitter.com/TwitterDev/lists/national-parks?ref_src=twsrc%5Etfw">A Twitter List by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

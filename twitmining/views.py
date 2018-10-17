@@ -4,8 +4,9 @@ import random
 from django.shortcuts import render, redirect
 
 import twitmining.util.config as cg
+import twitmining.util.collection as col
 from twitmining.util.dump import dump_on_disk
-from twitmining.models import Keyword
+from twitmining.models import Keyword, RelevantTweet
 from twitmining.forms import KeywordForm
 from twitmining.util.search import SearchEngine
 
@@ -41,6 +42,11 @@ def query(request):
     Returns:
         Django.render: A render object to pass links of relevant tweets to the query.html file
     """
+    previous_links = list()
+    for relevant_tweet in RelevantTweet.objects.all():
+        previous_links += [str(relevant_tweet.link)]
+
+    col.remove_from_collection(previous_links)
 
     assert len(Keyword.objects.all()) == 1
 
@@ -50,14 +56,14 @@ def query(request):
     # Instantiate all variables, the dataframe will contain all tweets related to the request
     count = 0
     complete_request = dict()
-    sample_request = random.randint(0, 9)
+    sample_request = random.randint(0, 1)
     base_url = cg.search_url
     url = base_url
     twit_df = pd.DataFrame(columns=["id_number", "text", "hashtags",
                                     "user_mentions", "verified", "location", "link", "score"])
 
     # get the tweets from the twitter API, a thousand tweets maximum (10 requests * 100 tweets)
-    while count < 10:
+    while count < 2:
 
         # Twitter limits the number of tweets by request at 100
         search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
@@ -94,7 +100,7 @@ def query(request):
             if tweet["text"][:2].strip() == "RT":
                 is_retweeted = True
 
-            setter = {"id_number": tweet["id_str"],
+            setter = {"id": tweet["id_str"],
                       "created_at": tweet["created_at"],
                       "text": tweet["text"],
                       "hashtags": hashtags,
@@ -120,22 +126,16 @@ def query(request):
     dump_on_disk({'sample_request': sample_request})
 
     # drop duplicate to avoid displaying the same tweet twice
-    #twit_df = twit_df.drop_duplicates(subset='text')
+    # twit_df = twit_df.drop_duplicates(subset='text')
     twit_df.to_csv('twit.csv')
+    twit_df["score"] = twit_df["score"].astype(str).astype(int)
 
     search_engine = SearchEngine(keyword, twit_df)
+    relevant = search_engine.score_tweets()
 
-    #links = [str(relevant_tweet[link]) for relevant_tweet in relevant]
-    links = ['https://twitter.com/TheTwitmining/status/1051895052467888131',
-            'https://twitter.com/TheTwitmining/status/1051895033962598401',
-            'https://twitter.com/TheTwitmining/status/1051894957802278912',
-            'https://twitter.com/TheTwitmining/status/1051894930069708801',
-            'https://twitter.com/TheTwitmining/status/1051894911597973504',
-            'https://twitter.com/TheTwitmining/status/1051894720132251650',
-            'https://twitter.com/TheTwitmining/status/1051894562011193346',
-            'https://twitter.com/TheTwitmining/status/1051894522786054145',
-            'https://twitter.com/TheTwitmining/status/1051894490699653120']
+    push = col.add_to_collection(relevant)
 
-    # links = {pos : link for pos, link in enumerate(links_list)} 
+    print(push)
+    print(relevant)
 
-    return render(request, './twitmining/query.html', {'links': links})
+    return render(request, './twitmining/query.html')

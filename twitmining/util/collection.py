@@ -44,4 +44,3 @@ def remove_from_collection(links):
         result.append(add_tweet)
 
     return result
-

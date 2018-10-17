@@ -1,4 +1,5 @@
-import pandas as pd
+from twitmining.models import RelevantTweet
+
 
 class SearchEngine:
     """
@@ -9,40 +10,44 @@ class SearchEngine:
         self.tweets = df
         self.keyword = keyword
         self.relevant = list()
+
+    def score_retweets(self):
+        for index, tweet in self.tweets.iterrows():
+            if tweet["is_retweeted"]:
+                self.tweets.at[index, "score"] = int(tweet['score'] - 200)
     
-    def preprocess_tweets(self):
-        """
-        This class will preprocess the dataframe by doing some actions to make easier the scoring
-        """
-        pass
+    def score_occurrences(self):
+        for index, tweet in self.tweets.iterrows():
+            self.tweets.at[index, "score"] = int(tweet['score'] + tweet["keyword_occurrence"]*100)
 
+    def score_user(self):
+        for index, tweet in self.tweets.iterrows():
+            self.tweets.at[index, "score"] = int(tweet['score'] + tweet["user_followers"]/100)
+            if tweet["verified"]:
+                self.tweets.at[index, "score"] = int(tweet['score'] + 100)
 
+    def score_sharing(self):
+        for index, tweet in self.tweets.iterrows():
+            self.tweets.at[index, "score"] = int(tweet['score'] + tweet["favorite_count"])
+            self.tweets.at[index, "score"] = int(tweet['score'] + tweet["retweet_count"])
 
     def score_tweets(self):
         """
         Score tweets and return the relevant list containing the most relevant tweets
         """
 
+        self.score_occurrences()
+        self.score_retweets()
+        self.score_sharing()
+        self.score_user()
 
-        """for tweet in Tweet.objects.all():
+        relevant = self.tweets.nlargest(10, "score")
+        relevant_links = list()
 
-            tweet.score += tweet.text.count(self.keyword)
+        for index, tweet in relevant.iterrows():
+            relevant_links.append(self.tweets.at[index, 'link'])
 
-            for hashtag in tweet.hashtags:
+        for link in relevant_links:
+            RelevantTweet.objects.create(link=link)
 
-                if hashtag.count(self.keyword) != 0:
-                    tweet.score += 2
-
-            if tweet.user_mentions != "":
-                tweet.score += 2
-
-            if tweet.verified:
-                tweet.score += 3
-
-            if tweet.location != "":
-                tweet.score += 5
-
-            if tweet.score > 3 and tweet not in self.relevant:
-                self.relevant.append(tweet)
-                RelevantTweet.objects.create(
-                    link=tweet.link, score=tweet.score)"""
+        return relevant_links

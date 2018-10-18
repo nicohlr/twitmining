@@ -6,3 +6,7 @@ class Keyword(models.Model):
 
     def __str__(self):
         return self.keyword
+
+
+class RelevantTweet(models.Model):
+    link = models.CharField(max_length=60, default='DEFAULT VALUE')

@@ -1,20 +1,16 @@
-from twitter import *
 import requests
 import base64
 import os
 
 passwords = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'passwords.txt'))
 
-_CONSUMER_KEY = passwords.readline()[:-1]
-_CONSUMER_SECRET = passwords.readline()[:-1]
-_TOKEN = passwords.readline()[:-1]
-_TOKEN_SECRET = passwords.readline()[:-1]
-
-# using twitter module
-t = Twitter(auth=OAuth(_TOKEN, _TOKEN_SECRET, _CONSUMER_KEY, _CONSUMER_SECRET))
+CONSUMER_KEY = passwords.readline()[:-1]
+CONSUMER_SECRET = passwords.readline()[:-1]
+TOKEN = passwords.readline()[:-1]
+TOKEN_SECRET = passwords.readline()[:-1]
 
 # using requests module
-key_secret = '{}:{}'.format(_CONSUMER_KEY, _CONSUMER_SECRET).encode('ascii')
+key_secret = '{}:{}'.format(CONSUMER_KEY, CONSUMER_SECRET).encode('ascii')
 b64_encoded_key = base64.b64encode(key_secret)
 b64_encoded_key = b64_encoded_key.decode('ascii')
 

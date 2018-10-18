@@ -1,10 +1,17 @@
 {% extends "base.html" %}
+{% block nav %}
+<li><a href="/twitmining/" id="search-link" class="skel-layers-ignoreHref" style="color: #fff;"
+    onmouseover="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.boxShadow='inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125)';this.style.color='#FF9F1C';" 
+    onmouseout="this.style.background='';this.style.color='#fff';this.style.boxShadow=''">
+<span class="icon fa-refresh">
+    New search
+</span></a></li>
+{% endblock %}
 {% block content %}
-<a href="/twitmining/" class="button scrolly">New search</a><br><br><br>
-{% for link in links %}
-<blockquote class="twitter-tweet tw-align-center" data-lang="fr">
-    <a href="{{ link }}"></a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-{% endfor %}
+    <div id="main">
+        <section id="top" class="one dark cover" style="padding: 0">
+            <a class="twitter-grid" data-limit="10" data-partner="tweetdeck" href="https://twitter.com/TheTwitmining/timelines/1052321560944611328?ref_src=twsrc%5Etfw"></a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </section>
+    </div>
 {% endblock %}

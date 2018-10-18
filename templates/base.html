@@ -32,11 +32,9 @@
 
 			<!-- Nav -->
 			<nav id="nav">
-
 				<ul>
-					<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
-					<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About</span></a></li>
-					<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+					{% block nav %}
+					{% endblock %}
 				</ul>
 			</nav>
 
@@ -55,73 +53,8 @@
 
 	</div>
 
-	<!-- Main -->
-	<div id="main">
-
-		<!-- Intro -->
-		<section id="top" class="one dark cover">
-			<div class="container">
-
-
-				{% block content %}
-				{% endblock %}
-
-
-			</div>
-		</section>
-
-
-		<!-- About Me -->
-		<section id="about" class="three">
-			<div class="container">
-
-				<header>
-					<h2>About</h2>
-				</header>
-
-				<!--<a href="#" class="image featured"><img src="{% static 'images/pic08.jpg' %}" alt="" /></a>-->
-
-				<p style="text-align:justify"> In an athletic sprint competition, getting a bad start often jeopardizes the good course of the race. The same
-					is true for crisis management: the first few hours of operation determine the success of subsequent operations.
-					However, making the right decisions early on is difficult because the information is fragmented, incomplete and
-					even false. In this purpose, the use of Twitter is a new source of information. Indeed, when disasters occur,
-					witnesses and victims quickly disseminate massive but not always reliable or easy to interpret information on this
-					social network.<br><br>
-
-					Imagine that it is possible to capture this information, to keep only the parts related to a situation and to
-					evaluate the relevance of the information by crossing. This would potentially provide a formidable tool to inform
-					the tactical and strategic decisions of rescue teams. This type of data mining is already widely used in many
-					contexts. The objective of this project is to demonstrate this concept.</p>
-
-			</div>
-		</section>
-
-		<!-- Contact -->
-		<section id="contact" class="four">
-			<div class="container">
-
-				<header>
-					<h2>Contact</h2>
-				</header>
-
-				<p>If you have any question or if you want to support or contribute by any way to the project, please feel free to
-					contact me to discuss about it.</p>
-
-				<form method="post" action="mailto:houlier.nicolas@outlook.fr">
-					<div class="row">
-						<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
-						<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
-						<div class="12u$">
-							<textarea name="message" placeholder="Message"></textarea>
-						</div>
-						<div class="12u$">
-							<input class="fa fa-input" type="submit" value="&#xf0e0; Send message">
-						</div>
-					</div>
-				</form>
-
-			</div>
-		</section>
+		{% block content %}
+		{% endblock %}
 
 	</div>
 

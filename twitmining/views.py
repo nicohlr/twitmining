@@ -16,7 +16,7 @@ def home(request):
     Generate a form in which the user will fill the keyword(s) which will be used for the request
 
     Returns:
-        [type]: A render object to pass linkthe form to the home.html file
+        Django.render: A render object to pass link the form to the home.html file
     """
 
     # if this is a POST request we need to process the form data
@@ -43,10 +43,13 @@ def query(request):
         Django.render: A render object to pass links of relevant tweets to the query.html file
     """
     previous_links = list()
+
     for relevant_tweet in RelevantTweet.objects.all():
         previous_links += [str(relevant_tweet.link)]
 
-    col.remove_from_collection(previous_links)
+    pull = col.remove_from_collection(previous_links)
+
+    print(pull)
 
     assert len(Keyword.objects.all()) == 1
 
@@ -63,7 +66,7 @@ def query(request):
                                     "user_mentions", "verified", "location", "link", "score"])
 
     # get the tweets from the twitter API, a thousand tweets maximum (10 requests * 100 tweets)
-    while count < 2:
+    while count < 3:
 
         # Twitter limits the number of tweets by request at 100
         search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
@@ -134,8 +137,5 @@ def query(request):
     relevant = search_engine.score_tweets()
 
     push = col.add_to_collection(relevant)
-
-    print(push)
-    print(relevant)
 
     return render(request, './twitmining/query.html')

@@ -20,7 +20,8 @@ def add_to_collection(links):
     add_collection_url_base = '{}1.1/collections/entries/add.json?'.format(base_url)
 
     for l in links:
-        add_collection_url = add_collection_url_base + 'tweet_id=' + l.split('/status/')[1] + '&id=custom-' + timeline_id
+        add_collection_url = add_collection_url_base + 'tweet_id=' + l.split('/status/')[
+            1].strip() + '&id=custom-' + timeline_id
 
         add_tweet = oauth_req(add_collection_url, TOKEN, TOKEN_SECRET, http_method="POST")
 
@@ -37,9 +38,33 @@ def remove_from_collection(links):
 
     for l in links:
         remove_collection_url = remove_collection_url_base + 'tweet_id=' + l.split('/status/')[
-            1] + '&id=custom-' + timeline_id
+            1].strip() + '&id=custom-' + timeline_id
 
         add_tweet = oauth_req(remove_collection_url, TOKEN, TOKEN_SECRET, http_method="POST")
+
+        result.append(add_tweet)
+
+    return result
+
+
+def curate_collection(links, task="add"):
+
+    result = list()
+
+    collection_url = '{}1.1/collections/entries/curate.json?'.format(base_url)
+
+    for l in links:
+
+        if task == "add":
+            collection_url = collection_url + 'tweet_id=' + l.split('/status/')[
+                1].strip() + '&id=custom-' + timeline_id + '&op=add'
+        elif task == "remove":
+            collection_url = collection_url + 'tweet_id=' + l.split('/status/')[
+                1].strip() + '&id=custom-' + timeline_id + '&op=remove'
+        else:
+            raise AttributeError("Invalid task argument, please choose between add or remove")
+
+        add_tweet = oauth_req(collection_url, TOKEN, TOKEN_SECRET, http_method="POST")
 
         result.append(add_tweet)
 

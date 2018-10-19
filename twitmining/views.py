@@ -96,7 +96,7 @@ def query(request):
             for kw in keywords:
                 occurrences += tweet["text"].count(kw)
 
-            setter = {"id": tweet["id_str"],
+            setter = {"id": tweet["id_str"] if not is_retweeted else tweet["retweeted_status"]["id_str"],  # avoid duplicate due to RT
                       "created_at": tweet["created_at"],
                       "text": tweet["text"],
                       "hashtags": hashtags,
@@ -104,7 +104,7 @@ def query(request):
                       "user_followers": tweet["user"]["followers_count"],
                       "verified": tweet["user"]["verified"],
                       "location": place,
-                      "link": 'https://twitter.com/TheTwitmining/status/' + tweet["id_str"],
+                      "link": 'https://twitter.com/' + tweet["user"]["screen_name"] + '/status/' + tweet["id_str"],
                       "is_retweeted": is_retweeted,
                       "favorite_count": tweet['favorite_count'],
                       "retweet_count": tweet['retweet_count'],
@@ -122,9 +122,7 @@ def query(request):
     dump_on_disk({'sample_request': sample_request})
 
     # drop duplicate to avoid displaying the same tweet twice using three different filters
-    twit_df = twit_df.drop_duplicates(subset='text')
     twit_df = twit_df.drop_duplicates(subset='id')
-    twit_df = twit_df.drop_duplicates(subset=['username', 'created_at'])
 
     # twit_df.to_csv('twit.csv')
     twit_df["score"] = twit_df["score"].astype(str).astype(int)

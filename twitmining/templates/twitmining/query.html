@@ -1,28 +1,36 @@
 {% extends "base.html" %}
 {% block nav %}
-<li><a href="/twitmining/" id="search-link" class="skel-layers-ignoreHref" style="color: #fff;"
-    onmouseover="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.boxShadow='inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125)';this.style.color='#FF9F1C';" 
-    onmouseout="this.style.background='';this.style.color='#fff';this.style.boxShadow=''">
+<li><a href="/twitmining/" id="search-link" class="newsearch" style="color: #41484c;">
 <span class="icon fa-refresh">
     New search
 </span></a></li>
 <style type="text/css"> 
-    #search-link.skel-layers-ignoreHref::before span:hover {
-        color: #FF9F1C;
+    #nav ul li a.newsearch:hover {
+        background: rgba(0, 0, 0, 0.15);
+        box-shadow: inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125);
+        color: #fff;
     }
+        #nav ul li a.newsearch:hover span {
+            color: #fff;
+        }
+        #nav ul li a.newsearch:hover span::before {
+            color: #FF9F1C;
+        }
+
 </style>
 {% endblock %}
 {% block content %}
     <div id="main">
         <section id="top" class="one dark cover" style="padding: 0">
             {% for link in links %}
-                <blockquote class="twitter-tweet" data-conversation="none" data-width="550">
+                <blockquote class="twitter-tweet" data-conversation="none" data-width="550" data-id>
                     <a  href="{{ link }}"></a>
                 </blockquote>
                 <style type="text/css"> 
                     .twitter-tweet {
                         display: inline-block !important;
                         padding-left: 15px !important;
+                        width: 550px
                     }
                 </style>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

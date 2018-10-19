@@ -59,7 +59,7 @@ def query(request):
                                     "user_mentions", "verified", "location", "link", "score"])
 
     # get the tweets from the twitter API, a thousand tweets maximum (10 requests * 100 tweets)
-    while count < 3:
+    while count < 1:
 
         # Twitter limits the number of tweets by request at 100
         search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
@@ -96,11 +96,16 @@ def query(request):
             if tweet["text"][:2].strip() == "RT":
                 is_retweeted = True
 
+            keywords = keyword.split(' ')
+            occurrences = 0
+            for kw in keywords:
+                occurrences += tweet["text"].count(kw)
+
             setter = {"id": tweet["id_str"],
                       "created_at": tweet["created_at"],
                       "text": tweet["text"],
                       "hashtags": hashtags,
-                      "user_name": tweet["user"]["screen_name"],
+                      "username": tweet["user"]["screen_name"],
                       "user_followers": tweet["user"]["followers_count"],
                       "verified": tweet["user"]["verified"],
                       "location": place,
@@ -108,7 +113,7 @@ def query(request):
                       "is_retweeted": is_retweeted,
                       "favorite_count": tweet['favorite_count'],
                       "retweet_count": tweet['retweet_count'],
-                      "keyword_occurrence": tweet["text"].count(keyword),
+                      "keyword_occurrence": occurrences,
                       "score": 0}
 
             twit_df = twit_df.append(setter, ignore_index=True)
@@ -121,14 +126,17 @@ def query(request):
 
     dump_on_disk({'sample_request': sample_request})
 
-    # drop duplicate to avoid displaying the same tweet twice
+    # drop duplicate to avoid displaying the same tweet twice using three different filters
     twit_df = twit_df.drop_duplicates(subset='text')
+    twit_df = twit_df.drop_duplicates(subset='id')
+    twit_df = twit_df.drop_duplicates(subset=['username', 'created_at'])
+
     # twit_df.to_csv('twit.csv')
     twit_df["score"] = twit_df["score"].astype(str).astype(int)
 
     search_engine = SearchEngine(keyword, twit_df)
     relevant = search_engine.score_tweets()
 
-    print(relevant[0])
+    print(dict([(n, relevant.count(n)) for n in set(relevant)]))
 
     return render(request, './twitmining/query.html', {'links': relevant})

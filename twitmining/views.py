@@ -1,13 +1,12 @@
 import pandas as pd
-import requests
 import random
 from django.shortcuts import render, redirect
 
-import twitmining.util.config as cg
+from twitmining.util.search_api import get_tweets, search_url
 from twitmining.util.dump import dump_on_disk
 from twitmining.models import Keyword, RelevantTweet
 from twitmining.forms import KeywordForm
-from twitmining.util.search import SearchEngine
+from twitmining.util.score import Scorer
 
 
 def home(request):
@@ -53,7 +52,7 @@ def query(request):
     count = 0
     complete_request = dict()
     sample_request = random.randint(0, 1)
-    base_url = cg.search_url
+    base_url = search_url
     url = base_url
     twit_df = pd.DataFrame(columns=["id_number", "text", "hashtags",
                                     "user_mentions", "verified", "location", "link", "score"])
@@ -61,11 +60,7 @@ def query(request):
     # get the tweets from the twitter API, a thousand tweets maximum (10 requests * 100 tweets)
     while count < 1:
 
-        # Twitter limits the number of tweets by request at 100
-        search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
-
-        tweets = requests.get(
-            url=url, headers=cg.search_headers, params=search_params).json()
+        tweets = get_tweets(url, keyword)
 
         if count == sample_request:
             sample_request = tweets['statuses'][:20]
@@ -134,9 +129,7 @@ def query(request):
     # twit_df.to_csv('twit.csv')
     twit_df["score"] = twit_df["score"].astype(str).astype(int)
 
-    search_engine = SearchEngine(keyword, twit_df)
-    relevant = search_engine.score_tweets()
-
-    print(dict([(n, relevant.count(n)) for n in set(relevant)]))
+    scorer = Scorer(keyword, twit_df)
+    relevant = scorer.score_tweets()
 
     return render(request, './twitmining/query.html', {'links': relevant})

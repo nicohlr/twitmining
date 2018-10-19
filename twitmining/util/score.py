@@ -1,7 +1,7 @@
 from twitmining.models import RelevantTweet
 
 
-class SearchEngine:
+class Scorer:
     """
     This class will perform the scoring of tweet to identify the most relevant tweets
     """

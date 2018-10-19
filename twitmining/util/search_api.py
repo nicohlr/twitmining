@@ -24,3 +24,9 @@ access_token = auth_resp.json()['access_token']
 
 search_headers = {'Authorization': 'Bearer {}'.format(access_token)}
 search_url = '{}1.1/search/tweets.json'.format(base_url)
+
+
+def get_tweets(url, keyword):
+    # Twitter limits the number of tweets by request at 100
+    search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
+    return requests.get(url=url, headers=search_headers, params=search_params).json()

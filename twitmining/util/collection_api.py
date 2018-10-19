@@ -1,4 +1,4 @@
-from twitmining.util.config import CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET
+from twitmining.util.search_api import CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET
 import oauth2
 
 base_url = 'https://api.twitter.com/'

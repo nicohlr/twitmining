@@ -1,14 +1,12 @@
 import pandas as pd
-import requests
 import random
 from django.shortcuts import render, redirect
 
-import twitmining.util.config as cg
-import twitmining.util.collection as col
+from twitmining.util.search_api import get_tweets, search_url
 from twitmining.util.dump import dump_on_disk
 from twitmining.models import Keyword, RelevantTweet
 from twitmining.forms import KeywordForm
-from twitmining.util.search import SearchEngine
+from twitmining.util.score import Scorer
 
 
 def home(request):
@@ -42,14 +40,8 @@ def query(request):
     Returns:
         Django.render: A render object to pass links of relevant tweets to the query.html file
     """
-    previous_links = list()
 
-    for relevant_tweet in RelevantTweet.objects.all():
-        previous_links += [str(relevant_tweet.link)]
-
-    pull = col.remove_from_collection(previous_links)
-
-    print(pull)
+    RelevantTweet.objects.all().delete()
 
     assert len(Keyword.objects.all()) == 1
 
@@ -60,19 +52,15 @@ def query(request):
     count = 0
     complete_request = dict()
     sample_request = random.randint(0, 1)
-    base_url = cg.search_url
+    base_url = search_url
     url = base_url
     twit_df = pd.DataFrame(columns=["id_number", "text", "hashtags",
                                     "user_mentions", "verified", "location", "link", "score"])
 
     # get the tweets from the twitter API, a thousand tweets maximum (10 requests * 100 tweets)
-    while count < 3:
+    while count < 1:
 
-        # Twitter limits the number of tweets by request at 100
-        search_params = {'q': keyword, 'result_type': 'recent', 'count': 100}
-
-        tweets = requests.get(
-            url=url, headers=cg.search_headers, params=search_params).json()
+        tweets = get_tweets(url, keyword)
 
         if count == sample_request:
             sample_request = tweets['statuses'][:20]
@@ -103,11 +91,16 @@ def query(request):
             if tweet["text"][:2].strip() == "RT":
                 is_retweeted = True
 
+            keywords = keyword.split(' ')
+            occurrences = 0
+            for kw in keywords:
+                occurrences += tweet["text"].count(kw)
+
             setter = {"id": tweet["id_str"],
                       "created_at": tweet["created_at"],
                       "text": tweet["text"],
                       "hashtags": hashtags,
-                      "user_name": tweet["user"]["screen_name"],
+                      "username": tweet["user"]["screen_name"],
                       "user_followers": tweet["user"]["followers_count"],
                       "verified": tweet["user"]["verified"],
                       "location": place,
@@ -115,7 +108,7 @@ def query(request):
                       "is_retweeted": is_retweeted,
                       "favorite_count": tweet['favorite_count'],
                       "retweet_count": tweet['retweet_count'],
-                      "keyword_occurrence": tweet["text"].count(keyword),
+                      "keyword_occurrence": occurrences,
                       "score": 0}
 
             twit_df = twit_df.append(setter, ignore_index=True)
@@ -128,14 +121,18 @@ def query(request):
 
     dump_on_disk({'sample_request': sample_request})
 
-    # drop duplicate to avoid displaying the same tweet twice
-    # twit_df = twit_df.drop_duplicates(subset='text')
-    twit_df.to_csv('twit.csv')
+    # drop duplicate to avoid displaying the same tweet twice using three different filters
+    twit_df = twit_df.drop_duplicates(subset='text')
+    twit_df = twit_df.drop_duplicates(subset='id')
+    twit_df = twit_df.drop_duplicates(subset=['username', 'created_at'])
+
+    # twit_df.to_csv('twit.csv')
     twit_df["score"] = twit_df["score"].astype(str).astype(int)
 
-    search_engine = SearchEngine(keyword, twit_df)
-    relevant = search_engine.score_tweets()
+    scorer = Scorer(keyword, twit_df)
+    relevant = scorer.score_tweets()
 
-    push = col.add_to_collection(relevant)
+    col1 = relevant[:int(len(relevant)/2)]
+    col2 = relevant[int(len(relevant)/2):]
 
-    return render(request, './twitmining/query.html')
+    return render(request, './twitmining/query.html', {'col1': col1, 'col2': col2})

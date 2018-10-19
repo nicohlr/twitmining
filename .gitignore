@@ -132,3 +132,4 @@ static
 twitmining/util/history
 .Rhistory
 *.csv
+.vscode

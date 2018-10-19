@@ -1,16 +1,52 @@
 {% extends "base.html" %}
 {% block nav %}
-<li><a href="/twitmining/" id="search-link" class="skel-layers-ignoreHref" style="color: #fff;"
-    onmouseover="this.style.background='rgba(0, 0, 0, 0.15)'; this.style.boxShadow='inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125)';this.style.color='#FF9F1C';" 
-    onmouseout="this.style.background='';this.style.color='#fff';this.style.boxShadow=''">
+<li><a href="/home/" id="search-link" class="newsearch" style="color: #41484c;">
 <span class="icon fa-refresh">
     New search
 </span></a></li>
+<style type="text/css"> 
+    #nav ul li a.newsearch:hover {
+        background: rgba(0, 0, 0, 0.15);
+        box-shadow: inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125);
+        color: #fff;
+    }
+        #nav ul li a.newsearch:hover span {
+            color: #fff;
+        }
+        #nav ul li a.newsearch:hover span::before {
+            color: #FF9F1C;
+        }
+
+</style>
 {% endblock %}
 {% block content %}
     <div id="main">
         <section id="top" class="one dark cover" style="padding: 0">
-            <a class="twitter-timeline" data-limit="10" data-partner="tweetdeck" href="https://twitter.com/TheTwitmining/timelines/1052321560944611328?ref_src=twsrc%5Etfw"></a>
+            <div id="colonne1">
+            {% for c1 in col1 %}
+                    <blockquote class="twitter-tweet" data-conversation="none" data-width="550">
+                        <a href="{{ c1 }}"></a>
+                    </blockquote>
+            {% endfor %}</div>
+            <div id="colonne2">
+                {% for c2 in col2 %}
+                    <blockquote class="twitter-tweet" data-conversation="none">
+                        <a href="{{ c2 }}"></a>
+                    </blockquote>
+                {% endfor %}
+            </div>
+            <style type="text/css">
+            #main section div#colonne1 {
+                float: left;
+                margin-left: 4%;
+                width: 45%;
+            }
+            #main section div#colonne2 {
+                float: right;
+                margin-right: 4%;
+                width: 45%;
+            }
+            </style>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </section>
     </div>

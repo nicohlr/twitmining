@@ -22,19 +22,32 @@
 {% block content %}
     <div id="main">
         <section id="top" class="one dark cover" style="padding: 0">
-            {% for link in links %}
-                <blockquote class="twitter-tweet" data-conversation="none" data-width="550" data-id>
-                    <a  href="{{ link }}"></a>
-                </blockquote>
-                <style type="text/css"> 
-                    .twitter-tweet {
-                        display: inline-block !important;
-                        padding-left: 15px !important;
-                        width: 550px
-                    }
-                </style>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            {% endfor %}
+            <div id="colonne1">
+            {% for c1 in col1 %}
+                    <blockquote class="twitter-tweet" data-conversation="none" data-width="550">
+                        <a href="{{ c1 }}"></a>
+                    </blockquote>
+            {% endfor %}</div>
+            <div id="colonne2">
+                {% for c2 in col2 %}
+                    <blockquote class="twitter-tweet" data-conversation="none">
+                        <a href="{{ c2 }}"></a>
+                    </blockquote>
+                {% endfor %}
+            </div>
+            <style type="text/css">
+            #main section div#colonne1 {
+                float: left;
+                margin-left: 4%;
+                width: 45%;
+            }
+            #main section div#colonne2 {
+                float: right;
+                margin-right: 4%;
+                width: 45%;
+            }
+            </style>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </section>
     </div>
 {% endblock %}

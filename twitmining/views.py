@@ -132,4 +132,9 @@ def query(request):
     scorer = Scorer(keyword, twit_df)
     relevant = scorer.score_tweets()
 
-    return render(request, './twitmining/query.html', {'links': relevant})
+    print(int(len(relevant)/2))
+
+    col1 = relevant[0:int(len(relevant)/2)-1]
+    col2 = relevant[int(len(relevant)/2):len(relevant)]
+
+    return render(request, './twitmining/query.html', {'col1': col1, 'col2': col2})

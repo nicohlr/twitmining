@@ -46,8 +46,6 @@ class SearchEngine:
 
         for index, tweet in relevant.iterrows():
             relevant_links.append(self.tweets.at[index, 'link'])
-
-        for link in relevant_links:
-            RelevantTweet.objects.create(link=link)
+            RelevantTweet.objects.create(link=self.tweets.at[index, 'link'], text=self.tweets.at[index, 'text'])
 
         return relevant_links

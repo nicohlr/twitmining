@@ -6,6 +6,19 @@ timeline_id = '1052321560944611328'
 
 
 def oauth_req(url, key, secret, http_method="GET", post_body="", http_headers=None):
+    """
+
+    Args:
+        url (str): url of the API to request
+        key (str): consumer key of the twitter application
+        secret (str): consumer secret of the twitter application
+        http_method (str): optional, Type of request, either GET or POST
+        post_body (str): optional, post body if the request type is POST
+        http_headers (dict): optional, an http header to join to the request
+
+    Returns: The content of the request (text, status code ...)
+
+    """
     consumer = oauth2.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
     token = oauth2.Token(key=key, secret=secret)
     client = oauth2.Client(consumer, token)
@@ -14,6 +27,16 @@ def oauth_req(url, key, secret, http_method="GET", post_body="", http_headers=No
 
 
 def add_to_collection(links):
+    """
+
+    Add a list of tweets to a collection
+
+    Args:
+        links (list): links of the tweets to be added
+
+    Returns (list): results of all the requests
+
+    """
 
     result = list()
 
@@ -31,6 +54,16 @@ def add_to_collection(links):
 
 
 def remove_from_collection(links):
+    """
+
+    Remove a list of tweets to a collection
+
+    Args:
+        links (list): links of the tweets to be removed
+
+    Returns (list): results of all the requests
+
+    """
 
     result = list()
 
@@ -48,6 +81,9 @@ def remove_from_collection(links):
 
 
 def curate_collection(links, task="add"):
+    """
+    ################# NOT WORKING YET #################
+    """
 
     result = list()
 

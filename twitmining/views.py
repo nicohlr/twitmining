@@ -4,7 +4,6 @@ import random
 from django.shortcuts import render, redirect
 
 import twitmining.util.config as cg
-import twitmining.util.collection as col
 from twitmining.util.dump import dump_on_disk
 from twitmining.models import Keyword, RelevantTweet
 from twitmining.forms import KeywordForm
@@ -42,14 +41,8 @@ def query(request):
     Returns:
         Django.render: A render object to pass links of relevant tweets to the query.html file
     """
-    previous_links = list()
 
-    for relevant_tweet in RelevantTweet.objects.all():
-        previous_links += [str(relevant_tweet.link)]
-
-    pull = col.remove_from_collection(previous_links)
-
-    print(pull)
+    RelevantTweet.objects.all().delete()
 
     assert len(Keyword.objects.all()) == 1
 
@@ -129,13 +122,13 @@ def query(request):
     dump_on_disk({'sample_request': sample_request})
 
     # drop duplicate to avoid displaying the same tweet twice
-    # twit_df = twit_df.drop_duplicates(subset='text')
-    twit_df.to_csv('twit.csv')
+    twit_df = twit_df.drop_duplicates(subset='text')
+    # twit_df.to_csv('twit.csv')
     twit_df["score"] = twit_df["score"].astype(str).astype(int)
 
     search_engine = SearchEngine(keyword, twit_df)
     relevant = search_engine.score_tweets()
 
-    push = col.add_to_collection(relevant)
+    print(relevant[0])
 
-    return render(request, './twitmining/query.html')
+    return render(request, './twitmining/query.html', {'links': relevant})

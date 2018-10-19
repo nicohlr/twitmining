@@ -10,3 +10,4 @@ class Keyword(models.Model):
 
 class RelevantTweet(models.Model):
     link = models.CharField(max_length=60, default='DEFAULT VALUE')
+    text = models.CharField(max_length=140, default='DEFAULT VALUE')

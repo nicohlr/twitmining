@@ -17,14 +17,17 @@
         <div class="container">
 
             <header>
-                <h2 class="alt"> Welcome on <strong> Twitmining </strong>
+                <h2 class="alt"> Welcome on <strong>Twitmining</strong>
                     <br> A responsive tool for analyzing quickly a twitter feed<br></h2>
             </header>
             
             <footer>
                 <form method="post">
                     {% csrf_token %}
-                    {{ form }} <br><br>
+                    {% for field in form %}
+                        <label class="label_field" style="margin-top: 10px;" for="{{ field.name }}">{{ field.label }}:</label>
+                        {{ field }}
+                    {% endfor %}<br>
                     <input class="fa fa-input" type="submit" value="&#xf002; Search">
                 </form>
             </footer>

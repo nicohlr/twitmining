@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Keyword, RelevantTweet
+from .models import Query, RelevantTweet
 
-admin.site.register(Keyword)
+admin.site.register(Query)
 admin.site.register(RelevantTweet)

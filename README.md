@@ -12,4 +12,4 @@ Imagine that it is possible to capture this information, to keep only the parts 
 
 Just enter your keyword in the search bar as you can see below. Then, the web application will do the remaining work by requesting twitter API, sort all received tweets by relevance and display it to you with a timeline of relevant tweets :
 
-<img src="./img/home.png" width="380"/>&nbsp;<img src="./img/query.png" width="380"/>
+<img src="./img/home.png" width="450"/>&nbsp;<img src="./img/query.png" width="450"/>

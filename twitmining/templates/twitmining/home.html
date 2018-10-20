@@ -25,10 +25,40 @@
                 <form method="post">
                     {% csrf_token %}
                     {% for field in form %}
-                        <label class="label_field" style="margin-top: 10px;" for="{{ field.name }}">{{ field.label }}:</label>
-                        {{ field }}
+                        {% if forloop.counter0 == 1 %}
+                            <div id="col1">
+                                <label class="label_field" style="margin-top: 10px;" for="{{ field.name }}">{{ field.label }}:</label>
+                                {{ field }}
+                            </div>
+                        {% elif forloop.counter0 == 2 %}
+                            <div id="col2">
+                                <label class="label_field" style="margin-top: 10px;" for="{{ field.name }}">{{ field.label }}:</label>
+                                {{ field }}
+                            </div>
+                        {% else %}
+                                <label class="label_field" style="margin-top: 10px;" for="{{ field.name }}">{{ field.label }}:</label>
+                                {{ field }}
+                        {% endif %}
                     {% endfor %}<br>
-                    <input class="fa fa-input" type="submit" value="&#xf002; Search">
+                    <style type="text/css">
+                        #main section div#col1 {
+                            float: left;
+                            margin-left: 4%;
+                            width: 20%;
+                        }
+                        #main section div#col2 {
+                            float: right;
+                            margin-right: 4%;
+                            width: 70%;
+                        }
+                        #main section div#col1 input {
+                            width: auto;
+                        }
+                    </style>
+                    <br><br>
+                    <div style="display: inline-block; margin-top: 5%;">
+                        <input class="fa fa-input" type="submit" value="&#xf002; Search">
+                    </div>
                 </form>
             </footer>
 

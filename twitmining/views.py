@@ -24,7 +24,11 @@ def home(request):
         form = QueryForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            Query.objects.create(keyword=form.cleaned_data['keyword'], sample_size=form.cleaned_data['sample_size']).save()
+            Query.objects.create(keyword=form.cleaned_data['keyword'],
+                                 sample_size=form.cleaned_data['sample_size'],
+                                 language=form.cleaned_data['language']
+                                 ).save()
+
             return redirect('query')
 
     # if a GET (or any other method) we'll create a blank form
@@ -48,6 +52,7 @@ def query(request):
 
     keyword = str(Query.objects.all()[0].keyword)
     sample = Query.objects.all()[0].sample_size
+    language = str(Query.objects.all()[0].language)
     Query.objects.all().delete()
 
     # Instantiate all variables, the dataframe will contain all tweets related to the request
@@ -62,7 +67,7 @@ def query(request):
     # get the tweets from the twitter API, a thousand tweets maximum (10 requests * 100 tweets)
     while count < int(sample/100):
 
-        tweets = get_tweets(url, keyword)
+        tweets = get_tweets(url, keyword, language)
 
         if count == sample_request:
             sample_request = tweets['statuses'][:20]
@@ -103,7 +108,10 @@ def query(request):
                 occurrences_hashtags += hashtags.count(kw)
 
             # avoid duplicate due to RT
-            tweet_id = tweet["id_str"] if not is_retweeted else tweet["retweeted_status"]["id_str"]
+            try:
+                tweet_id = tweet["id_str"] if not is_retweeted else tweet["retweeted_status"]["id_str"]
+            except KeyError:
+                print(tweet)
 
             setter = {"id": tweet_id,
                       "created_at": tweet["created_at"],

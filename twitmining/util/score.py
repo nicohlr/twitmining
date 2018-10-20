@@ -14,7 +14,7 @@ class Scorer:
     def score_retweets(self):
         for index, tweet in self.tweets.iterrows():
             if tweet["is_retweeted"]:
-                self.tweets.at[index, "score"] = int(tweet['score'] - 200)
+                self.tweets.at[index, "score"] = int(tweet['score'] - 500)
     
     def score_occurrences(self):
         for index, tweet in self.tweets.iterrows():
@@ -23,9 +23,22 @@ class Scorer:
 
     def score_user(self):
         for index, tweet in self.tweets.iterrows():
-            self.tweets.at[index, "score"] = int(tweet['score'] + tweet["user_followers"]/100)
+            if 0 <= tweet["user_followers"] <= 1000:
+                followers_score = 0
+            elif 1000 <= tweet["user_followers"] <= 10000:
+                followers_score = 200
+            elif 100000 <= tweet["user_followers"] <= 100000:
+                followers_score = 500
+            else:
+                followers_score = 1000
+            self.tweets.at[index, "score"] = int(tweet['score'] + followers_score)
             if tweet["verified"]:
-                self.tweets.at[index, "score"] = int(tweet['score'] + 100)
+                self.tweets.at[index, "score"] = int(tweet['score'] + 200)
+    
+    def score_place(self):
+        for index, tweet in self.tweets.iterrows():
+            if tweet["location"]:
+                self.tweets.at[index, "score"] = int(tweet['score'] + 500)
 
     def score_sharing(self):
         for index, tweet in self.tweets.iterrows():
@@ -41,6 +54,7 @@ class Scorer:
         self.score_retweets()
         self.score_sharing()
         self.score_user()
+        self.score_place()
 
         relevant = self.tweets.nlargest(10, "score")
         relevant_links = list()

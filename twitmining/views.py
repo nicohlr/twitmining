@@ -111,7 +111,7 @@ def query(request):
             try:
                 tweet_id = tweet["id_str"] if not is_retweeted else tweet["retweeted_status"]["id_str"]
             except KeyError:
-                print(tweet)
+                tweet_id = tweet["id_str"]
 
             setter = {"id": tweet_id,
                       "created_at": tweet["created_at"],
@@ -141,6 +141,8 @@ def query(request):
 
     # drop duplicate to avoid displaying the same tweet twice using three different filters
     try:
+        twit_df = twit_df.drop_duplicates(subset='text')
+        twit_df = twit_df.drop_duplicates(subset='hashtags')
         twit_df = twit_df.drop_duplicates(subset='id')
     except KeyError:
         pass
@@ -150,8 +152,9 @@ def query(request):
 
     scorer = Scorer(keyword, twit_df)
     relevant = scorer.score_tweets()
+    empty = True if len(relevant) == 0 else False
 
     col1 = relevant[:int(len(relevant)/2)]
     col2 = relevant[int(len(relevant)/2):]
 
-    return render(request, './twitmining/query.html', {'col1': col1, 'col2': col2})
+    return render(request, './twitmining/query.html', {'empty': empty, 'col1': col1, 'col2': col2})

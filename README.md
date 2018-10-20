@@ -10,14 +10,6 @@ Imagine that it is possible to capture this information, to keep only the parts 
 
 ## How to use
 
-Just enter your keyword in the search bar as you can see below :
+Just enter your keyword in the search bar as you can see below. Then, the web application will do the remaining work by requesting twitter API, sort all received tweets by relevance and display it to you with a timeline of relevant tweets :
 
-<p align="center">
-<img src="./img/twitmining.gif" width="600"/>
-</p>
-
-Then, the web application will do the remaining work by requesting twitter API, sort all received tweets by relevance and display it to you with a timeline of relevant tweets :
-
-<p align="center">
-<img src="./img/query.gif" width="600"/>
-</p>
+<img src="./img/home.png" width="49.7%"/>&nbsp;<img src="./img/query.png" width="49.7%"/>

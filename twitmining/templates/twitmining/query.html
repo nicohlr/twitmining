@@ -16,19 +16,18 @@
         #nav ul li a.newsearch:hover span::before {
             color: #FF9F1C;
         }
-
 </style>
 {% endblock %}
 {% block content %}
     <div id="main">
         <section id="top" class="one dark cover" style="padding: 0">
-            <div id="colonne1">
+            <div id="column1">
             {% for c1 in col1 %}
-                    <blockquote class="twitter-tweet" data-conversation="none" data-width="550">
+                    <blockquote class="twitter-tweet" data-conversation="none">
                         <a href="{{ c1 }}"></a>
                     </blockquote>
             {% endfor %}</div>
-            <div id="colonne2">
+            <div id="column2">
                 {% for c2 in col2 %}
                     <blockquote class="twitter-tweet" data-conversation="none">
                         <a href="{{ c2 }}"></a>
@@ -36,16 +35,16 @@
                 {% endfor %}
             </div>
             <style type="text/css">
-            #main section div#colonne1 {
-                float: left;
-                margin-left: 4%;
-                width: 45%;
-            }
-            #main section div#colonne2 {
-                float: right;
-                margin-right: 4%;
-                width: 45%;
-            }
+                #main section div#column1 {
+                    float: left;
+                    margin-left: 4%;
+                    width: 45%;
+                }
+                #main section div#column2 {
+                    float: right;
+                    margin-right: 4%;
+                    width: 45%;
+                }
             </style>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </section>

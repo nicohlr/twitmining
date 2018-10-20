@@ -19,7 +19,7 @@ class Scorer:
     def score_occurrences(self):
         for index, tweet in self.tweets.iterrows():
             self.tweets.at[index, "score"] = int(tweet['score'] + tweet["keyword_occurrence"]*100)
-            self.tweets.at[index, "score"] = int(tweet['score'] + tweet["hashtags"].count(self.keyword.lower())*100)
+            self.tweets.at[index, "score"] = int(tweet['score'] + tweet["hashtag_occurrence"]*100)
 
     def score_user(self):
         for index, tweet in self.tweets.iterrows():

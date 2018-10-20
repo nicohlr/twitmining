@@ -97,8 +97,10 @@ def query(request):
 
             keywords = keyword.split(' ')
             occurrences = 0
+            occurrences_hashtags = 0
             for kw in keywords:
                 occurrences += tweet["text"].count(kw)
+                occurrences_hashtags += hashtags.count(kw)
 
             # avoid duplicate due to RT
             tweet_id = tweet["id_str"] if not is_retweeted else tweet["retweeted_status"]["id_str"]
@@ -116,6 +118,7 @@ def query(request):
                       "favorite_count": tweet['favorite_count'],
                       "retweet_count": tweet['retweet_count'],
                       "keyword_occurrence": occurrences,
+                      "hashtag_occurrence": occurrences_hashtags,
                       "score": 0}
 
             twit_df = twit_df.append(setter, ignore_index=True)

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block nav %}
+<meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="yes"/>
 <li><a href="/home/" id="search-link" class="newsearch" style="color: #41484c;">
 <span class="icon fa-refresh">
     New search
@@ -41,6 +41,16 @@
                     {% endfor %}
                 </div>
                 <style type="text/css">
+                    @media screen and (max-width: 736px) {
+                        #main section div#column1 {
+                            text-align: center;
+                            display: block;
+                        }
+                        #main section div#column2 {
+                            text-align: center;
+                            display: block;
+                        }
+                    }
                     #main section div#column1 {
                         float: left;
                         margin-left: 4%;

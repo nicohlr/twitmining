@@ -109,7 +109,6 @@ venv.bak/
 .mypy_cache/
 
 *.txt
-*.css
 *.jpg
 *.otf
 *.eot
@@ -118,18 +117,12 @@ venv.bak/
 *.woff
 *.woff2
 *.htc
-*.js
 *.scss
-
-.static
-.vscode/settings.json
-TwitterAnalyse/.DS_Store
-static/images/.DS_Store
-static/.DS_Store
-twitmining/migrations/.DS_Store
-.DS_Store
-static
-twitmining/util/history
-.Rhistory
+*.DS_Store
 *.csv
+
+.vscode/settings.json
+.Rhistory
 .vscode
+static/assets/
+twitmining/util/history

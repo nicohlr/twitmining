@@ -7,6 +7,8 @@ from twitmining.util.dump import dump_on_disk
 from twitmining.models import Query, RelevantTweet
 from twitmining.forms import QueryForm
 from twitmining.util.score import Scorer
+from twitmining.util.preprocessing import preprocess_tweet
+from socialmining.settings import DEBUG
 
 
 def home(request):
@@ -17,7 +19,7 @@ def home(request):
         Django.render: A render object to pass link the form to the home.html file
     """
     Query.objects.all().delete()
-    
+
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -61,68 +63,27 @@ def query(request):
     sample_request = random.randint(0, 1)
     base_url = search_url
     url = base_url
-    twit_df = pd.DataFrame(columns=["id_number", "text", "hashtags",
-                                    "user_mentions", "verified", "location", "link", "score"])
+    twit_df = pd.DataFrame(columns=["id", "created_at", "text", "hashtags", "username", "user_followers",
+                                    "verified", "location", "link", "is_retweeted", "favorite_count",
+                                    "retweet_count", "keyword_occurrence", "hashtag_occurrence",
+                                    "has_media", "score"])
 
     # get the tweets from the twitter API, a thousand tweets maximum (10 requests * 100 tweets)
     while count < int(sample/100):
 
         tweets = get_tweets(url, keyword, language)
 
-        if count == sample_request:
+        if count == sample_request and DEBUG:
             sample_request = tweets['statuses'][:20]
 
         complete_request['request_' + str(count)] = tweets
 
-        try:
+        if 'next_results' in tweets['search_metadata']:
             url = base_url + tweets['search_metadata']['next_results']
-        except KeyError:
-            pass
 
         # Process each tweet one by one by adding it to the dataframe
         for tweet in tweets['statuses']:
-            
-            is_retweeted = False
-
-            location = tweet["user"]["place"] if "place" in tweet["user"] else None
-
-            hashtags = str()
-            if len(tweet["entities"]["hashtags"]) != 0:
-                for hashtag in tweet["entities"]["hashtags"]:
-                    hashtags = hashtags + hashtag["text"]
-
-            if tweet["text"][:4].strip() == "RT @":
-                is_retweeted = True
-
-            keywords = keyword.split(' ')
-            occurrences = 0
-            occurrences_hashtags = 0
-            for kw in keywords:
-                occurrences += tweet["text"].lower().count(kw.lower())
-                occurrences_hashtags += hashtags.lower().count(kw.lower())
-
-            # avoid duplicate due to RT
-            if "retweeted_status" in tweet:
-                tweet_id = tweet["id_str"] if not is_retweeted else tweet["retweeted_status"]["id_str"]
-            else:
-                tweet_id = tweet["id_str"]
-
-            setter = {"id": tweet_id,
-                      "created_at": tweet["created_at"],
-                      "text": tweet["text"],
-                      "hashtags": hashtags,
-                      "username": tweet["user"]["screen_name"],
-                      "user_followers": tweet["user"]["followers_count"],
-                      "verified": tweet["user"]["verified"],
-                      "location": location,
-                      "link": 'https://twitter.com/' + tweet["user"]["screen_name"] + '/status/' + tweet["id_str"],
-                      "is_retweeted": is_retweeted,
-                      "favorite_count": tweet['favorite_count'],
-                      "retweet_count": tweet['retweet_count'],
-                      "keyword_occurrence": occurrences,
-                      "hashtag_occurrence": occurrences_hashtags,
-                      "score": 0}
-
+            setter = preprocess_tweet(tweet=tweet, keyword=keyword)
             twit_df = twit_df.append(setter, ignore_index=True)
 
         # Break the loop if all related tweets have already been found
@@ -131,15 +92,13 @@ def query(request):
         else:
             count += 1
 
-    dump_on_disk({'sample_request': sample_request})
+    if DEBUG:
+        dump_on_disk({'sample_request': sample_request})
 
     # drop duplicate to avoid displaying the same tweet twice using three different filters
-    try:
-        twit_df = twit_df.drop_duplicates(subset='text')
-        twit_df = twit_df.drop_duplicates(subset='hashtags')
-        twit_df = twit_df.drop_duplicates(subset='id')
-    except KeyError:
-        pass
+    twit_df = twit_df.drop_duplicates(subset='text')
+    twit_df = twit_df.drop_duplicates(subset='hashtags')
+    twit_df = twit_df.drop_duplicates(subset='id')
 
     # twit_df.to_csv('twit.csv')
     twit_df["score"] = twit_df["score"].astype(str).astype(int)

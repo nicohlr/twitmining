@@ -45,6 +45,11 @@ class Scorer:
             self.tweets.at[index, "score"] = int(tweet['score'] + tweet["favorite_count"])
             self.tweets.at[index, "score"] = int(tweet['score'] + tweet["retweet_count"])
 
+    def score_media(self):
+        for index, tweet in self.tweets.iterrows():
+            if tweet["has_media"]:
+                self.tweets.at[index, "score"] = int(tweet['score'] + 500)
+
     def score_tweets(self):
         """
         Score tweets and return the relevant list containing the most relevant tweets
@@ -55,11 +60,12 @@ class Scorer:
         self.score_sharing()
         self.score_user()
         self.score_place()
+        self.score_media()
 
         relevant = self.tweets.nlargest(10, "score")
         relevant_links = list()
 
-        for index, tweet in relevant.iterrows():
+        for index, _ in relevant.iterrows():
             relevant_links.append(self.tweets.at[index, 'link'])
             RelevantTweet.objects.create(link=self.tweets.at[index, 'link'], text=self.tweets.at[index, 'text'])
 

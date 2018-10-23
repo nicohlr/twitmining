@@ -109,7 +109,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-*.txt
 *.jpg
 *.otf
 *.eot
@@ -127,3 +126,4 @@ venv.bak/
 .vscode
 static/assets/
 twitmining/util/history
+twitmining/util/passwords.txt

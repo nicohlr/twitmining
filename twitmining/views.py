@@ -1,15 +1,45 @@
 import pandas as pd
 import random
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout
+from django.shortcuts import render
 
 from twitmining.util.search_api import get_tweets, search_url
 from twitmining.util.dump import dump_on_disk
 from twitmining.models import Query, RelevantTweet
-from twitmining.forms import QueryForm
+from twitmining.forms import QueryForm, ConnectionForm
 from twitmining.util.score import Scorer
 from twitmining.util.preprocessing import preprocess_tweet
 from socialmining.settings import DEBUG
 
+def log_in(request):
+    error = False
+
+    if request.method == "POST":
+        form = ConnectionForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            user = authenticate(username=username, password=password)  # check if data are valid
+            if user:
+                login(request, user)
+                return redirect('home')
+            else:
+                error = True
+
+    else:
+        print(request)
+        if request.user.is_authenticated:
+            return redirect('home')
+        else:
+            form = ConnectionForm()
+
+    return render(request, './twitmining/login.html', locals())
+
+def disconnection(request):
+    logout(request)
+    return redirect(reverse(disconnection))
 
 def home(request):
     """

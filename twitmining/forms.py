@@ -18,3 +18,8 @@ class QueryForm(forms.Form):
     sample_size = forms.IntegerField(max_value=3000, min_value=100, initial=300, label="Sample Size",
                                      widget=forms.NumberInput(attrs={'step': '100'}))
     language = forms.ChoiceField(choices=LANG_CHOICES)
+
+
+class ConnectionForm(forms.Form):
+    username = forms.CharField(label="Nom d'utilisateur", max_length=30)
+    password = forms.CharField(label="Mot de passe", widget=forms.PasswordInput)

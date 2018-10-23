@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+
+<html>
+
+    <head>
+        {% load widget_tweaks %}
+        {% load static %}
+        <link href="{% static 'login.css' %}" rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+    
+
+        {% if user.is_authenticated %}
+        You are already connected, {{ user.username }} !
+        {% else %}
+
+            <form method="post" action=".">
+                {% csrf_token %}
+                <div class="box">
+                    <h1>Login</h1>
+
+                    {% render_field form.username class="username" placeholder="username" %}
+                    {% render_field form.password class="password" placeholder="password" %}
+                    
+        <a href="#"><input type="submit" class="btn" value="Sign In" /></a> <!-- End Btn -->
+
+            <a href="#"><div class="btn2">Sign Up</div></a> <!-- End Btn2 -->
+                
+            </div> <!-- End Box -->
+                
+            </form>
+
+            <!-- <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p> -->
+                
+        {% endif %}
+    </body>
+</html>

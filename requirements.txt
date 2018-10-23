@@ -1,0 +1,5 @@
+django
+pandas
+requests
+oauth2
+django-widget-tweaks

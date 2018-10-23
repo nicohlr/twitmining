@@ -11,3 +11,29 @@
 #main section div#col1 input {
     width: auto;
 }
+
+#nav ul li a.logout:hover {
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125);
+    color: #fff;
+}
+
+#nav ul li a.logout:hover span {
+    color: #fff;
+}
+#nav ul li a.logout:hover span::before {
+    color: #FF9F1C;
+}
+
+#nav ul li a.administration:hover {
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125);
+    color: #fff;
+}
+
+#nav ul li a.administration:hover span {
+    color: #fff;
+}
+#nav ul li a.administration:hover span::before {
+    color: #FF9F1C;
+}

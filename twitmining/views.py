@@ -1,9 +1,8 @@
 import pandas as pd
 import random
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from twitmining.util.search_api import get_tweets, search_url
 from twitmining.util.dump import dump_on_disk
@@ -37,10 +36,11 @@ def log_in(request):
 
     return render(request, './twitmining/login.html', locals())
 
-def disconnection(request):
+def log_out(request):
     logout(request)
-    return redirect(reverse(disconnection))
+    return redirect('/')
 
+@login_required(login_url='/')
 def home(request):
     """
     Generate a form in which the user will fill the keyword(s) which will be used for the request
@@ -69,7 +69,7 @@ def home(request):
 
     return render(request, './twitmining/home.html', {'form': form})
 
-
+@login_required(login_url='/')
 def query(request):
     """
     Create a query from keyword form

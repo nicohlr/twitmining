@@ -62,10 +62,10 @@ class Scorer:
         self.score_place()
         self.score_media()
 
-        relevant = self.tweets.nlargest(10, "score")
+        self.relevant = self.tweets.nlargest(10, "score")
         relevant_links = list()
 
-        for index, _ in relevant.iterrows():
+        for index, _ in self.relevant.iterrows():
             relevant_links.append(self.tweets.at[index, 'link'])
             RelevantTweet.objects.create(link=self.tweets.at[index, 'link'], text=self.tweets.at[index, 'text'])
 

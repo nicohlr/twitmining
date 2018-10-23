@@ -9,7 +9,10 @@
     <li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
     <li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About</span></a></li>
     <li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
-    <li><a href="http://127.0.0.1:8000/admin/" id="admin-link" class="skel-layers-ignoreHref"><span class="icon fa-wrench">Administration</span></a></li>
+    <li><a href="/logout/" id="logout-link" class="logout">
+        <span class="icon fa-power-off">Log out</span></a></li>
+    <li><a href="http://127.0.0.1:8000/admin/" id="admin-link" class="administration">
+        <span class="icon fa-wrench">Administration</span></a></li>
 {% endblock %}
 
 {% block content %}
@@ -21,8 +24,8 @@
             <div class="container">
 
                 <header>
-                    <h2 class="alt"> Welcome on <strong>Twitmining</strong>
-                        <br> A powerful tool for analyzing quickly a twitter feed<br></h2>
+                    <h3 class="alt"> Welcome on <strong>Twitmining</strong>
+                        <br> A powerful tool for analyzing quickly a twitter feed<br></h3>
                 </header>
                 
                 <footer>
@@ -45,7 +48,7 @@
                             {% endif %}
                         {% endfor %}<br>
                         <br><br>
-                        <div style="display: inline-block; margin-top: 5%;">
+                        <div style="display: inline-block; margin-top: 5%; width: 100%;">
                             <input class="fa fa-input" type="submit" value="&#xf002; Search">
                         </div>
                     </form>

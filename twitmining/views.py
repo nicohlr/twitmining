@@ -28,7 +28,6 @@ def log_in(request):
                 error = True
 
     else:
-        print(request)
         if request.user.is_authenticated:
             return redirect('home')
         else:

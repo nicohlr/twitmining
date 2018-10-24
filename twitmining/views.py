@@ -65,7 +65,7 @@ def sign_up(request):
         else:
             form = InscriptionForm()
 
-    return render(request, './twitmining/login.html', locals())
+    return render(request, './twitmining/signup.html', locals())
 
 @login_required(login_url='/')
 def home(request):

@@ -24,9 +24,9 @@ body{
     margin-top: 3.5%;
   }
 
-  div.login {
+  div.signup {
     float: right; 
-    margin-right: 30%;
+    margin-right: 25%;
   }
 
   img.img {
@@ -58,6 +58,28 @@ body{
   }
   
   .password {
+    background:#ecf0f1;
+    border: #ccc 1px solid;
+    border-bottom: #ccc 2px solid;
+    padding: 8px;
+    margin-top:10px;
+    width:250px;
+    font-size:1em;
+    border-radius:4px;
+  }
+
+  .email {
+    background:#ecf0f1;
+    border: #ccc 1px solid;
+    border-bottom: #ccc 2px solid;
+    padding: 8px;
+    width:250px;
+    margin-top:10px;
+    font-size:1em;
+    border-radius:4px;
+  }
+  
+  .confirm_password {
     background:#ecf0f1;
     border: #ccc 1px solid;
     border-bottom: #ccc 2px solid;

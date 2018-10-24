@@ -1,0 +1,13 @@
+div.logo_container {
+    float: left; 
+    margin-left: 22%;
+    margin-top: 3%; 
+    height: 35px; 
+    width: 20%;
+  }
+
+  div.title_container {
+  float: right; 
+  width: 60%; 
+  margin-right:-6%;
+}

@@ -5,11 +5,12 @@
 <head>
 	<title>Twitmining</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="yes"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	{% load static %}
 	<link rel="shortcut icon" type='image/x-icon' href="{% static 'assets/css/images/favicon.ico' %}" />
 	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	<link rel="stylesheet" href="{% static 'base.css' %}" />
 	{% block css %}
 	{% endblock %}
 
@@ -24,13 +25,13 @@
 
 			<!-- Logo -->
 			<div id="logo">
-                <div style="float: left; margin-left: 22%; height: 35px; width: 20%;">
-				<img src="{% static 'assets/css/images/logo.png' %}" alt="" width="35px" />
+                <div class="logo_container">
+					<img class="image_logo" src="{% static 'assets/css/images/logo.png' %}" alt="" width="70%" />
                 </div>
-                <div style="float: right; width: 60%; margin-right:-6%">
-				<h1 id="title" style="padding-right: 20%">Twitmining</h1>
+                <div class="title_container">
+					<h1 id="title" style="padding-right: 20%">Twitmining</h1>
                 </div>
-				<p><I>A world of data within your reach !</I></p>
+				<p class="slogan"><I>A world of data within your reach !</I></p>
 			</div>
 
 			<!-- Nav -->

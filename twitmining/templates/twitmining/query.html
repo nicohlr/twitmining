@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block nav %}
-    <li><a href="/home/" id="search-link" class="newsearch" style="color: #41484c;">
+    <li><a href="/home/" id="search-link" class="newsearch" >
     <span class="icon fa-refresh">New search</span></a></li>
-    <li><a href="/logout/" id="logout-link" class="logout" style="color: #41484c;">
+    <li><a href="/logout/" id="logout-link" class="logout" >
     <span class="icon fa-power-off">Log out</span></a></li>
 {% endblock %}
 
@@ -17,7 +17,7 @@
     <div id="main">
         <section id="top" class="one dark cover" style="padding: 0">
             {% if empty %}
-                <header style="margin-top: 25%">
+                <header class="notfound" >
                 <h2 class="alt">Sorry, <strong>no tweets</strong>
                     <br>match your search ...<br></h2>
                 </header>

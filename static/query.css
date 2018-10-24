@@ -1,22 +1,41 @@
+#main section header.notfound {
+    margin-top: 40vh
+}
+
+@media screen and (min-width: 736px) {
+    section div#column1 {
+        float: left;
+        margin-left: 4%;
+        width: 45%;
+    }
+    section div#column2 {
+        float: right;
+        margin-right: 4%;
+        width: 45%;
+    }
+}
+
+
 @media screen and (max-width: 736px) {
-    #main section div#column1 {
+    body section div#column1 {
         text-align: center;
         display: block;
+        margin-left: 15vw;
+
     }
-    #main section div#column2 {
+    body section div#column2 {
         text-align: center;
         display: block;
+        margin-left: 15vw;
     }
 }
-#main section div#column1 {
-    float: left;
-    margin-left: 4%;
-    width: 45%;
+
+#nav ul li a.newsearch {
+    color: #41484c;
 }
-#main section div#column2 {
-    float: right;
-    margin-right: 4%;
-    width: 45%;
+
+#nav ul li a.logout {
+    color: #41484c;
 }
 
 #nav ul li a.newsearch:hover {

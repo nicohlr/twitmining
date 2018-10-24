@@ -1,13 +1,28 @@
+div.search_button {
+    display: inline-block; 
+    margin-top: 5%; 
+    width: 100%;
+}
+
+label.label_field {
+    margin-top: 10px;
+}
+
+section div p.about_text {
+    text-align:justify
+}
+
 #main section div#col1 {
     float: left;
     margin-left: 4%;
-    width: 20%;
 }
+
 #main section div#col2 {
     float: right;
     margin-right: 4%;
-    width: 70%;
+    width: 40vw;
 }
+
 #main section div#col1 input {
     width: auto;
 }

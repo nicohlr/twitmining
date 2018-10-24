@@ -3,11 +3,13 @@ import random
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
 
 from twitmining.util.search_api import get_tweets, search_url
 from twitmining.util.dump import dump_on_disk
 from twitmining.models import Query, RelevantTweet
-from twitmining.forms import QueryForm, ConnectionForm
+from twitmining.forms import QueryForm, ConnectionForm, InscriptionForm
 from twitmining.util.score import Scorer
 from twitmining.util.preprocessing import preprocess_tweet
 from socialmining.settings import DEBUG
@@ -38,6 +40,32 @@ def log_in(request):
 def log_out(request):
     logout(request)
     return redirect('/')
+
+def sign_up(request):
+    error = False
+
+    if request.method == "POST":
+        form = InscriptionForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data["email"]
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            confirmed_password = form.cleaned_data["confirmed_password"]
+            if password == confirmed_password:
+                User.objects.create_user(username=username, password=password, email=email)
+                user = authenticate(username=username, password=password)
+                login(request, user)
+                return redirect('home')
+            else:
+                error = True
+
+    else:
+        if request.user.is_authenticated:
+            return redirect('home')
+        else:
+            form = InscriptionForm()
+
+    return render(request, './twitmining/login.html', locals())
 
 @login_required(login_url='/')
 def home(request):

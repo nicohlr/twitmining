@@ -27,15 +27,17 @@
                         <img class="img" src="{% static 'assets/css/images/logo.png' %}" alt=""/>
                     </div>
                     <div class="login">
-                        <h1 id="title">Log in</h1>
+                        <h1 id="title">Sign up</h1>
                     </div>
 
+                    {% render_field form.email class="email" placeholder="email" %}
                     {% render_field form.username class="username" placeholder="username" %}
                     {% render_field form.password class="password" placeholder="password" %}
+                    {% render_field form.confirmed_password class="confirm_password" placeholder="comfirm password" %}
                     
-        <a href="#"><input type="submit" class="btn" value="Sign In" /></a> <!-- End Btn -->
+        <a href="#"><input type="submit" class="btn" value="Confirm and Sign In" /></a> <!-- End Btn -->
 
-            <a href="#"><div href="/sign_up/" class="btn2">Sign Up</div></a> <!-- End Btn2 -->
+            <a href="#"><div href="/log_in/" class="btn2">Cancel</div></a> <!-- End Btn2 -->
                 
             </div> <!-- End Box -->
                 

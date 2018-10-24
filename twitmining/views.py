@@ -80,12 +80,9 @@ def query(request):
 
     RelevantTweet.objects.all().delete()
 
-    assert len(Query.objects.all()) == 1
-
     keyword = str(Query.objects.all()[0].keyword)
     sample = Query.objects.all()[0].sample_size
     language = str(Query.objects.all()[0].language)
-    Query.objects.all().delete()
 
     # Instantiate all variables, the dataframe will contain all tweets related to the request
     count = 0

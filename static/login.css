@@ -17,11 +17,27 @@ body{
     color:#525252;
   }
 
+  div.logo {
+    float: left; 
+    margin-left: 25%; 
+    width: 20%; 
+    margin-top: 4%;
+  }
+
+  div.login {
+    float: right; 
+    margin-right: 33%;
+  }
+
+  img.img {
+    width: 60%;
+  }
+
   div.box{
     margin-top: 30vh;}
 
   .box{
-    background:white;
+    background: #ecf1f1;
     width:300px;
     border-radius:6px;
     margin: 0 auto 0 auto;

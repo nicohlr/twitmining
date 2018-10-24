@@ -23,7 +23,12 @@
             <form method="post" action=".">
                 {% csrf_token %}
                 <div class="box">
-                    <h1>Login</h1>
+                    <div class="logo">
+                        <img class="img" src="{% static 'assets/css/images/logo.png' %}" alt=""/>
+                    </div>
+                    <div class="login">
+                        <h1 id="title">Login</h1>
+                    </div>
 
                     {% render_field form.username class="username" placeholder="username" %}
                     {% render_field form.password class="password" placeholder="password" %}

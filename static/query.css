@@ -63,3 +63,19 @@
 #nav ul li a.logout:hover span::before {
     color: #F44708;
 }
+
+#logo {
+    text-align: center;
+}
+
+#logo p.slogan {
+    text-align: center;
+    border: #2ecc71 1px solid;
+    background-color: #2ecc71;
+    border-radius: 5px;
+}
+
+#logo p I.slogantext {
+    padding: 10px;
+    color: black;
+}

@@ -15,6 +15,10 @@ from twitmining.util.preprocessing import preprocess_tweet
 from socialmining.settings import DEBUG
 
 def log_in(request):
+    """
+    View for the root page, allows user to sign in to access the website
+    """
+
     error = False
 
     if request.method == "POST":
@@ -38,10 +42,16 @@ def log_in(request):
     return render(request, './twitmining/login.html', locals())
 
 def log_out(request):
+    """
+    View for the logout page
+    """
     logout(request)
     return redirect('/')
 
 def sign_up(request):
+    """
+    View for the signup page, allows user to create an account
+    """
     error = False
 
     if request.method == "POST":
@@ -147,7 +157,8 @@ def query(request):
             count += 1
 
     if DEBUG:
-        dump_on_disk({'sample_request': sample_request})
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'history/twitmining_request_' + timestamp + '.' + fmt)
+        dump_on_disk({'sample_request': sample_request}, path=path)
 
     # drop duplicate to avoid displaying the same tweet twice using three different filters
     twit_df = twit_df.drop_duplicates(subset='text')

@@ -27,6 +27,18 @@ search_url = '{}1.1/search/tweets.json'.format(base_url)
 
 
 def get_tweets(url, keyword, language='all'):
+    """
+    Request search API to get 100 tweets related to the keyword
+    
+    Args:
+        url (str): url of the API, can contain a max_id to request "old" tweet
+        keyword (str): keyword from the request of the user
+        language (str, optional): Defaults to 'all'. Wanted language of tweets 
+    
+    Returns:
+        [type]: [description]
+    """
+
     # Twitter limits the number of tweets by request at 100
     if language != 'all':
         search_params = {'q': keyword, 'result_type': 'recent', 'count': 100, 'lang': language}

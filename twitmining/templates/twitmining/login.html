@@ -6,7 +6,6 @@
         <title>Twitmining</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="yes"/>
-        
         {% load widget_tweaks %}
         {% load static %}
         <link rel="shortcut icon" type='image/x-icon' href="{% static 'assets/css/images/favicon.ico' %}" />
@@ -17,12 +16,14 @@
     
 
         {% if user.is_authenticated %}
-        You are already connected, {{ user.username }} !
+            You are already connected, {{ user.username }} !
         {% else %}
 
             <form method="post" action=".">
+
                 {% csrf_token %}
                 <div class="box">
+
                     <div class="logo">
                         <img class="img" src="{% static 'assets/css/images/logo.png' %}" alt=""/>
                     </div>
@@ -33,16 +34,13 @@
                     {% render_field form.username class="username" placeholder="username" %}
                     {% render_field form.password class="password" placeholder="password" %}
                     
-        <a href="#"><input type="submit" class="btn" value="Sign In" /></a> <!-- End Btn -->
+                    <a href="#"><input type="submit" class="btn" value="Sign In" /></a> <!-- End Btn -->
 
-            <a href="#"><div href="/sign_up/" class="btn2">Sign Up</div></a> <!-- End Btn2 -->
+                    <a href="#"><div href="/sign_up/" class="btn2">Sign Up</div></a> <!-- End Btn2 -->
                 
-            </div> <!-- End Box -->
-                
+                </div> 
             </form>
-
             <!-- <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p> -->
-                
         {% endif %}
     </body>
 </html>

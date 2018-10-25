@@ -6,24 +6,20 @@
 	<title>Twitmining</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
 	{% load static %}
 	<link rel="shortcut icon" type='image/x-icon' href="{% static 'assets/css/images/favicon.ico' %}" />
 	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
 	<link rel="stylesheet" href="{% static 'base.css' %}" />
 	{% block css %}
 	{% endblock %}
-
 </head>
 
 <body>
 
-	<!-- Header -->
 	<div id="header">
 
 		<div class="top">
 
-			<!-- Logo -->
 			<div id="logo">
                 <div class="logo_container">
 					<img class="image_logo" src="{% static 'assets/css/images/logo.png' %}" alt="" width="70%" />
@@ -34,7 +30,6 @@
 				<p class="slogan"><I>A world of data within your reach !</I></p>
 			</div>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul>
 					{% block nav %}
@@ -46,7 +41,6 @@
 
 		<div class="bottom">
 
-			<!-- Social Icons -->
 			<ul class="icons">
 				<li><a href="https://twitter.com/TheTwitmining" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 				<li><a href="https://github.com/NicolasHoulier/twitmining" class="icon fa-github"><span class="label">Github</span></a></li>
@@ -55,25 +49,24 @@
 
 		</div>
 
-		</div>
+		<div class="content">
 
 			{% block content %}
 			{% endblock %}
 
 		</div>
 
-		<!-- Footer -->
 		<div id="footer">
 
-			<!-- Copyright -->
 			<ul class="copyright">
 				<li>&copy; Twitmining. All rights reserved.</li>
 				<li>Author: <a> Nicolas Houlier </a></li>
 			</ul>
 
 		</div>
+	
+	</div>
 
-		<!-- Scripts -->
 		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
 		<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
 		<script src="{% static 'assets/js/jquery.scrollzer.min.js' %}"></script>

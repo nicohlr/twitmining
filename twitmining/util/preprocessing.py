@@ -1,4 +1,15 @@
 def preprocess_tweet(tweet, keyword):
+    """
+    Extract information from response of the twitter API
+    
+    Args:
+        tweet (dict): One tweet returned by the twitter API
+        keyword (str): keyword from the request of the user
+    
+    Returns:
+        setter (dict): all relevant information containing the tweet
+    """
+
 
     has_media = False
     is_retweeted = False

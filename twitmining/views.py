@@ -157,8 +157,7 @@ def query(request):
             count += 1
 
     if DEBUG:
-        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'history/twitmining_request_' + timestamp + '.' + fmt)
-        dump_on_disk({'sample_request': sample_request}, path=path)
+        dump_on_disk({'sample_request': sample_request})
 
     # drop duplicate to avoid displaying the same tweet twice using three different filters
     twit_df = twit_df.drop_duplicates(subset='text')

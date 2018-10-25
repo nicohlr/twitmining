@@ -38,8 +38,9 @@ def log_in(request):
             return redirect('home')
         else:
             form = ConnectionForm()
+            error = False
 
-    return render(request, './twitmining/login.html', locals())
+    return render(request, './twitmining/login.html', {'form': form, 'error': error})
 
 def log_out(request):
     """
@@ -75,7 +76,7 @@ def sign_up(request):
         else:
             form = InscriptionForm()
 
-    return render(request, './twitmining/signup.html', locals())
+    return render(request, './twitmining/signup.html', {'form': form, 'error': error})
 
 @login_required(login_url='/')
 def home(request):

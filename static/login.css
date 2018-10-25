@@ -70,7 +70,7 @@ body{
   
   .btn{
     background:#2ecc71;
-    width:125px;
+    width:42.9%;
     padding-top:5px;
     padding-bottom:5px;
     color:white;
@@ -92,7 +92,8 @@ body{
   .btn2 {
     float:left;
     background:#FFB30F;
-    width:125px;  padding-top:5px;
+    width:42.9%;  
+    padding-top:5px;
     padding-bottom:5px;
     color:white;
     border-radius:4px;

@@ -38,7 +38,6 @@ def log_in(request):
             return redirect('home')
         else:
             form = ConnectionForm()
-            error = False
 
     return render(request, './twitmining/login.html', {'form': form, 'error': error})
 
@@ -105,7 +104,7 @@ def home(request):
     else:
         form = QueryForm()
 
-    return render(request, './twitmining/home.html', {'form': form})
+    return render(request, './twitmining/home.html', {'form': form, 'debug': DEBUG})
 
 @login_required(login_url='/')
 def query(request):

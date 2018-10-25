@@ -21,11 +21,11 @@ class QueryForm(forms.Form):
 
 
 class ConnectionForm(forms.Form):
-    username = forms.CharField(label="Username", max_length=30)
+    username = forms.CharField(label="Username", max_length=15)
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
 
 class InscriptionForm(forms.Form):
-    username = forms.CharField(label="Username", max_length=30)
+    username = forms.CharField(label="Username", max_length=15)
     email = forms.EmailField()
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
     confirmed_password = forms.CharField(label="Confirmed Password", widget=forms.PasswordInput)

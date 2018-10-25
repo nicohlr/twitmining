@@ -37,7 +37,7 @@ section div p.about_text {
     color: #fff;
 }
 #nav ul li a.logout:hover span::before {
-    color: #FF9F1C;
+    color: #F44708;
 }
 
 #nav ul li a.administration:hover {
@@ -51,4 +51,20 @@ section div p.about_text {
 }
 #nav ul li a.administration:hover span::before {
     color: #FF9F1C;
+}
+
+#logo {
+    text-align: center;
+}
+
+#logo p.slogan {
+    text-align: center;
+    border: #2ecc71 1px solid;
+    background-color: #2ecc71;
+    border-radius: 5px;
+}
+
+#logo p I.slogantext {
+    padding: 10px;
+    color: black;
 }

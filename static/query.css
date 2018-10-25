@@ -61,5 +61,5 @@
     color: #fff;
 }
 #nav ul li a.logout:hover span::before {
-    color: #FF9F1C;
+    color: #F44708;
 }

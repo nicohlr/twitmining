@@ -4,6 +4,14 @@ import datetime
 
 
 def dump_on_disk(data, fmt='json'):
+    """
+    Dump given data into a file on the disk
+    
+    Args:
+        data (str): data to be dumped
+        path (str): path where the output file should be located
+        fmt (str, optional): Defaults to 'json'. Format of output file.
+    """
 
     timestamp = datetime.datetime.now().isoformat()
 

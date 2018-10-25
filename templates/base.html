@@ -2,78 +2,71 @@
 
 <html>
 
-<head>
-	<title>Twitmining</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<head>
+		<title>Twitmining</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{% load static %}
+		<link rel="shortcut icon" type='image/x-icon' href="{% static 'assets/css/images/favicon.ico' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'base.css' %}" />
+		{% block css %}
+		{% endblock %}
+	</head>
 
-	{% load static %}
-	<link rel="shortcut icon" type='image/x-icon' href="{% static 'assets/css/images/favicon.ico' %}" />
-	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
-	<link rel="stylesheet" href="{% static 'base.css' %}" />
-	{% block css %}
-	{% endblock %}
+	<body>
 
-</head>
+		<div id="header">
 
-<body>
+			<div class="top">
 
-	<!-- Header -->
-	<div id="header">
+				<div id="logo">
+					<div class="logo_container">
+						<img class="image_logo" src="{% static 'assets/css/images/logo.png' %}" alt="" width="70%" />
+					</div>
+					<div class="title_container">
+						<h1 id="title" style="padding-right: 20%">Twitmining</h1>
+					</div>
+					<p class="slogan"><I>A world of data within your reach !</I></p>
+				</div>
 
-		<div class="top">
+				<nav id="nav">
+					<ul>
+						{% block nav %}
+						{% endblock %}
+					</ul>
+				</nav>
 
-			<!-- Logo -->
-			<div id="logo">
-                <div class="logo_container">
-					<img class="image_logo" src="{% static 'assets/css/images/logo.png' %}" alt="" width="70%" />
-                </div>
-                <div class="title_container">
-					<h1 id="title" style="padding-right: 20%">Twitmining</h1>
-                </div>
-				<p class="slogan"><I>A world of data within your reach !</I></p>
 			</div>
 
-			<!-- Nav -->
-			<nav id="nav">
-				<ul>
-					{% block nav %}
-					{% endblock %}
+			<div class="bottom">
+
+				<ul class="icons">
+					<li><a href="https://twitter.com/TheTwitmining" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="https://github.com/NicolasHoulier/twitmining" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="#contact" class="icon fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
-			</nav>
+
+			</div>
 
 		</div>
 
-		<div class="bottom">
-
-			<!-- Social Icons -->
-			<ul class="icons">
-				<li><a href="https://twitter.com/TheTwitmining" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="https://github.com/NicolasHoulier/twitmining" class="icon fa-github"><span class="label">Github</span></a></li>
-				<li><a href="#contact" class="icon fa-envelope"><span class="label">Email</span></a></li>
-			</ul>
-
-		</div>
-
-		</div>
+		<div id="content">
 
 			{% block content %}
 			{% endblock %}
 
 		</div>
 
-		<!-- Footer -->
 		<div id="footer">
 
-			<!-- Copyright -->
 			<ul class="copyright">
 				<li>&copy; Twitmining. All rights reserved.</li>
 				<li>Author: <a> Nicolas Houlier </a></li>
 			</ul>
 
 		</div>
-
-		<!-- Scripts -->
+		
 		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
 		<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
 		<script src="{% static 'assets/js/jquery.scrollzer.min.js' %}"></script>

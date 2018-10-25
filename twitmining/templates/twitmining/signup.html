@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+
+<html>
+
+    <head>
+        <title>Twitmining</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        {% load widget_tweaks %}
+        {% load static %}
+        <link rel="shortcut icon" type='image/x-icon' href="{% static 'assets/css/images/favicon.ico' %}" />
+        <link href="{% static 'signup.css' %}" rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+    
+
+        {% if user.is_authenticated %}
+        You are already connected, {{ user.username }} !
+        {% else %}
+
+            <form method="post" action=".">
+
+                {% csrf_token %}
+                <div class="box">
+
+                    <div class="logo">
+                        <img class="img" src="{% static 'assets/css/images/logo.png' %}" alt=""/>
+                    </div>
+                    <div class="signup">
+                        <h1 id="title">Sign up</h1>
+                    </div>
+
+                    {% render_field form.email class="email" placeholder="email" %}
+                    {% render_field form.username class="username" placeholder="username" %}
+                    {% render_field form.password class="password" placeholder="password" %}
+                    {% render_field form.confirmed_password class="confirm_password" placeholder="comfirm password" %}
+                    
+                    <a href="#"><input type="submit" class="btn" value="Confirm and Sign In" /></a>
+
+                    <a href="/"><input type="button" class=btn2 value="Cancel"></a>
+                
+                </div>
+            </form>                
+        {% endif %}
+    </body>
+</html>

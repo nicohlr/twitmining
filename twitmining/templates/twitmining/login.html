@@ -6,43 +6,44 @@
         <title>Twitmining</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="yes"/>
-        
         {% load widget_tweaks %}
         {% load static %}
         <link rel="shortcut icon" type='image/x-icon' href="{% static 'assets/css/images/favicon.ico' %}" />
         <link href="{% static 'login.css' %}" rel='stylesheet' type='text/css'>
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
 
     <body>
-    
 
-        {% if user.is_authenticated %}
-        You are already connected, {{ user.username }} !
-        {% else %}
+        <form method="post" action=".">
 
-            <form method="post" action=".">
-                {% csrf_token %}
-                <div class="box">
-                    <div class="logo">
-                        <img class="img" src="{% static 'assets/css/images/logo.png' %}" alt=""/>
-                    </div>
-                    <div class="login">
-                        <h1 id="title">Login</h1>
-                    </div>
-
-                    {% render_field form.username class="username" placeholder="username" %}
-                    {% render_field form.password class="password" placeholder="password" %}
-                    
-        <a href="#"><input type="submit" class="btn" value="Sign In" /></a> <!-- End Btn -->
-
-            <a href="#"><div class="btn2">Sign Up</div></a> <!-- End Btn2 -->
+            {% csrf_token %}
+            <div class="box" id="boxlog">
                 
-            </div> <!-- End Box -->
-                
-            </form>
+                <div class="logo">
+                    <img class="img" src="{% static 'assets/css/images/logo.png' %}" alt=""/>
+                </div>
+                <div class="login">
+                    <h1 id="title">Log in</h1>
+                </div>
 
+                {% render_field form.username class="username" placeholder="username" %}
+                {% render_field form.password class="password" placeholder="password" %}
+                
+                <a href="#"><input type="submit" class="btn" value="Sign In" /></a> <!-- End Btn -->
+
+                <a href="/signup/"><input type="button" class="btn2" value="Sign Up" /></a> <!-- End Btn2 -->
+            
+            </div> 
+        </form>
+
+        <script type="text/javascript"> 
+            var error = "{{ error }}";
+            if (error == "True") {
+                $("#boxlog").effect("shake", {times: 2, distance: 10});
+            }
+         </script>
             <!-- <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p> -->
-                
-        {% endif %}
     </body>
 </html>

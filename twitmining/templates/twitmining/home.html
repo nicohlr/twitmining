@@ -19,16 +19,17 @@
 
     <div id="main">
 
-        <!-- Intro -->
         <section id="top" class="one dark cover" style="padding: 7%">
+
             <div class="container">
 
                 <header>
                     <h3 class="alt"> Welcome on <strong>Twitmining</strong>
-                        <br> A powerful tool for analyzing quickly a twitter feed<br></h3>
+                    <br> A powerful tool for analyzing quickly a twitter feed<br></h3>
                 </header>
                 
                 <footer>
+
                     <form method="post">
                         {% csrf_token %}
                         {% for field in form %}
@@ -52,14 +53,13 @@
                             <input class="fa fa-input" type="submit" value="&#xf002; Search">
                         </div>
                     </form>
-                </footer>
 
+                </footer>
             </div>
         </section>
 
-
-        <!-- About Me -->
         <section id="about" class="three">
+
             <div class="container">
 
                 <header>
@@ -76,13 +76,15 @@
                     Imagine that it is possible to capture this information, to keep only the parts related to a situation and to
                     evaluate the relevance of the information by crossing. This would potentially provide a formidable tool to inform
                     the tactical and strategic decisions of rescue teams. This type of data mining is already widely used in many
-                    contexts. The objective of this project is to demonstrate this concept.</p>
+                    contexts. The objective of this project is to demonstrate this concept.
+                </p>
 
             </div>
+
         </section>
 
-        <!-- Contact -->
         <section id="contact" class="four">
+
             <div class="container">
 
                 <header>
@@ -96,15 +98,13 @@
                     <div class="row">
                         <div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
                         <div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+                        <div class="12u$"><textarea name="message" placeholder="Message"></textarea></div>
                         <div class="12u$">
-                            <textarea name="message" placeholder="Message"></textarea>
-                        </div>
-                        <div class="12u$">
-                            <a href="mailto:houlier.nicolas@outlook.fr"><input class="fa fa-input" type="submit" value="&#xf0e0; Send message"></a>
+                            <a href="mailto:houlier.nicolas@outlook.fr">
+                                <input class="fa fa-input" type="submit" value="&#xf0e0; Send message"></a>
                         </div>
                     </div>
                 </form>
-
             </div>
         </section>
     </div>

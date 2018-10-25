@@ -15,27 +15,40 @@
 {% block content %}
 
     <div id="main">
+        
         <section id="top" class="one dark cover" style="padding: 0">
+
             {% if empty %}
+
                 <header class="notfound" >
                 <h2 class="alt">Sorry, <strong>no tweets</strong>
                     <br>match your search ...<br></h2>
                 </header>
+
             {% else %}
+
                 <div id="column1">
+
                     {% for c1 in col1 %}
                             <blockquote class="twitter-tweet" data-conversation="none">
                                 <a href="{{ c1 }}"></a>
                             </blockquote>
-                    {% endfor %}</div>
+                    {% endfor %}
+
+                </div>
+
                 <div id="column2">
+
                     {% for c2 in col2 %}
                         <blockquote class="twitter-tweet" data-conversation="none">
                             <a href="{{ c2 }}"></a>
                         </blockquote>
                     {% endfor %}
+
                 </div>
+
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
             {% endif %}
         </section>
     </div>

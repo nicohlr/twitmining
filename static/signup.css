@@ -21,7 +21,7 @@ body{
     float: left; 
     margin-left: 25%; 
     width: 20%; 
-    margin-top: 3.5%;
+    margin-top: 3%;
   }
 
   div.signup {
@@ -129,4 +129,13 @@ body{
   
   .btn2:hover { 
   background: rgb(244, 16, 8); 
+  }
+
+  div.error {
+    text-align: center !important;
+    color:  rgb(244, 16, 8);
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-weight: bold;
   }

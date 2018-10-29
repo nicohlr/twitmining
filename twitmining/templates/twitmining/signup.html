@@ -13,35 +13,49 @@
     </head>
 
     <body>
-    
 
-        {% if user.is_authenticated %}
-        You are already connected, {{ user.username }} !
-        {% else %}
+        <form method="post" action=".">
 
-            <form method="post" action=".">
+            {% csrf_token %}
+            <div class="box" id="boxlog">
 
-                {% csrf_token %}
-                <div class="box">
-
-                    <div class="logo">
-                        <img class="img" src="{% static 'assets/css/images/logo.png' %}" alt=""/>
-                    </div>
-                    <div class="signup">
-                        <h1 id="title">Sign up</h1>
-                    </div>
-
-                    {% render_field form.email class="email" placeholder="email" %}
-                    {% render_field form.username class="username" placeholder="username" %}
-                    {% render_field form.password class="password" placeholder="password" %}
-                    {% render_field form.confirmed_password class="confirm_password" placeholder="comfirm password" %}
-                    
-                    <a href="#"><input type="submit" class="btn" value="Confirm and Sign In" /></a>
-
-                    <a href="/"><input type="button" class=btn2 value="Cancel"></a>
-                
+                <div class="logo">
+                    <img class="img" src="{% static 'assets/css/images/logo.png' %}" alt=""/>
                 </div>
-            </form>                
-        {% endif %}
+                <div class="signup">
+                    <h1 id="title">Sign up</h1>
+                </div>
+
+                {% if password_error %}
+                    <div class="error">
+                        Password and confirmed password are not the same ⚠️
+                    </div>
+                {% elif email_error %}
+                    <div class="error">
+                        An account is already registered with this email ⚠️
+                    </div>
+                {% elif username_error %}
+                    <div class="error">
+                        This username is already used ⚠️
+                    </div>
+                {% endif %}
+
+                {% render_field form.email class="email" placeholder="email" %}
+                {% render_field form.username class="username" placeholder="username" %}
+                {% render_field form.password class="password" placeholder="password" %}
+                {% render_field form.confirmed_password class="confirm_password" placeholder="comfirm password" %}
+                
+                <a href="#"><input type="submit" class="btn" value="Confirm and Sign In" /></a>
+
+                <a href="/"><input type="button" class=btn2 value="Cancel"></a>
+            
+            </div>
+        </form>
+        <script type="text/javascript"> 
+            var error = "{{ error }}";
+            if (error == "True") {
+                $("#boxlog").effect("shake", {times: 2, distance: 5});
+            }
+         </script>
     </body>
 </html>

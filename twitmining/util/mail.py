@@ -14,7 +14,7 @@ def send_mail(email, name, message):
     server.login(from_adress, password)
 
     # Send the mail
-    msg = "\n\nSender mail: {0}\nSender name: {1}\n\nMessage:\n{2}".format(email, name, message).encode('utf-8').strip()
+    msg = "Subject: Twitmining Contact\n\nSender mail: {0}\nSender name: {1}\n\nMessage:\n{2}".format(email, name, message).encode('utf-8').strip()
     server.sendmail("nicolas.houlier@grenoble-em.com", "houlier.nicolas@outlook.fr", msg)
 
     return True

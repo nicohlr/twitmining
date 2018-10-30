@@ -72,3 +72,13 @@ section div p.about_text {
     padding: 10px;
     color: black;
 }
+
+div textarea#id_message {
+    resize:none;
+    height: 10em;
+    min-height: 0em !important;
+}
+
+header.contact {
+    margin: 0 0 1em 0 !important;
+}

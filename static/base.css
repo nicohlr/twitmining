@@ -7,3 +7,7 @@ div img.image_logo {
 div h1#title {
   margin-left: 20%;
 }
+
+a.linkhome {
+  border: none
+}

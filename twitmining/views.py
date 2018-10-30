@@ -9,9 +9,10 @@ from django.contrib.auth.models import User
 from twitmining.util.search_api import get_tweets, search_url
 from twitmining.util.dump import dump_on_disk
 from twitmining.models import Query, RelevantTweet
-from twitmining.forms import QueryForm, ConnectionForm, InscriptionForm
+from twitmining.forms import QueryForm, ConnectionForm, InscriptionForm, MailForm
 from twitmining.util.score import Scorer
 from twitmining.util.preprocessing import preprocess_tweet
+from twitmining.util.mail import send_mail
 from socialmining.settings import DEBUG
 
 
@@ -89,7 +90,7 @@ def sign_up(request):
             form = InscriptionForm()
 
     error = True if password_error or email_error or username_error else False
-    print(error)
+
     return render(request, './twitmining/signup.html', {'form': form,
                                                         'error': error,
                                                         'username_error': username_error,
@@ -106,25 +107,42 @@ def home(request):
         Django.render: A render object to pass link the form to the home.html file
     """
     Query.objects.all().delete()
+    sending_confirmation = False
 
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = QueryForm(request.POST)
+        form_search = QueryForm(request.POST)
+        form_email = MailForm(request.POST)
         # check whether it's valid:
-        if form.is_valid():
-            Query.objects.create(keyword=form.cleaned_data['keyword'],
-                                 sample_size=form.cleaned_data['sample_size'],
-                                 language=form.cleaned_data['language']
+        if form_search.is_valid():
+            Query.objects.create(keyword=form_search.cleaned_data['keyword'],
+                                 sample_size=form_search.cleaned_data['sample_size'],
+                                 language=form_search.cleaned_data['language']
                                  ).save()
 
             return redirect('query')
+        
+        if form_email.is_valid():
+            name = form_email.cleaned_data["name"]
+            email = form_email.cleaned_data["email"]
+            message = form_email.cleaned_data["message"]
+            
+            sending_confirmation = send_mail(email, name, message)
+            return render(request, './twitmining/home.html', {'form_search': QueryForm(),
+                                                              'form_email': MailForm(),
+                                                              'sending_confirmation': sending_confirmation,
+                                                              'debug': DEBUG})
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = QueryForm()
+        form_search = QueryForm()
+        form_email = MailForm()
 
-    return render(request, './twitmining/home.html', {'form': form, 'debug': DEBUG})
+    return render(request, './twitmining/home.html', {'form_search': form_search,
+                                                      'form_email': form_email,
+                                                      'sending_confirmation': sending_confirmation,
+                                                      'debug': DEBUG})
 
 
 @login_required(login_url='/')

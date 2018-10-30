@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block css %}
+    {% load widget_tweaks %}
     {% load static %}
 	<link rel="stylesheet" href="{% static 'home.css' %}" />
 {% endblock %}
@@ -34,7 +35,7 @@
 
                     <form method="post">
                         {% csrf_token %}
-                        {% for field in form %}
+                        {% for field in form_search %}
                             {% if forloop.counter0 == 1 %}
                                 <div id="col1">
                                     <label class="label_field" for="{{ field.name }}">{{ field.label }}:</label>
@@ -89,20 +90,27 @@
 
             <div class="container">
 
-                <header>
+                <header class="contact">
                     <h2>Contact</h2>
                 </header>
 
                 <p>If you have any question or if you want to support or contribute by any way to the project, please feel free to
                     contact me to discuss about it.</p>
 
-                <form method="post" action="{% static 'mail.php' %}">
+                <form method="post">
+                    {% csrf_token %}
                     <div class="row">
-                        <div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
-                        <div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
-                        <div class="12u$"><textarea name="message" placeholder="Message"></textarea></div>
+                        <div class="6u 12u$(mobile)">
+                            {% render_field form_email.name name="name" placeholder="Name" %}
+                        </div>
+                        <div class="6u$ 12u$(mobile)">
+                            {% render_field form_email.email name="email" placeholder="Email" %}
+                        </div>
                         <div class="12u$">
-                            <a href="mailto:houlier.nicolas@outlook.fr">
+                            {% render_field form_email.message name="message" placeholder="Message" %}
+                        </div>
+                        <div class="12u$">
+                            <a href="/mail/">
                                 <input class="fa fa-input" type="submit" value="&#xf0e0; Send message"></a>
                         </div>
                     </div>
@@ -110,5 +118,11 @@
             </div>
         </section>
     </div>
+    <script type="text/javascript"> 
+        var send = "{{ sending_confirmation }}";
+        if (send == "True") {
+            alert("Your mail has been sent. We will contact you soon !");
+        }
+     </script>
 
 {% endblock %}

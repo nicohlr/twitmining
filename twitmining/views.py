@@ -59,7 +59,6 @@ def sign_up(request):
     password_error = False
     email_error = False
     username_error = False
-    error = False
 
     if request.method == "POST":
         form = InscriptionForm(request.POST)

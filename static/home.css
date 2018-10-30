@@ -4,6 +4,10 @@ div.search_button {
     width: 100%;
 }
 
+input.fa.fa-input {
+    -webkit-appearance: none;
+}
+
 label.label_field {
     margin-top: 10px;
 }

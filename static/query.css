@@ -20,13 +20,15 @@
     body section div#column1 {
         text-align: center;
         display: block;
-        margin-left: 15vw;
+        margin-left: 17vw;
+        margin-right: 17vw;
 
     }
     body section div#column2 {
         text-align: center;
         display: block;
-        margin-left: 15vw;
+        margin-left: 17vw;
+        margin-right: 17vw;
     }
 }
 

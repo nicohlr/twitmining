@@ -11,8 +11,10 @@
     <li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
     <li><a href="/logout/" id="logout-link" class="logout">
         <span class="icon fa-power-off">Log out</span></a></li>
-    <li><a href="http://127.0.0.1:8000/admin/" id="admin-link" class="administration">
-        <span class="icon fa-wrench">Administration</span></a></li>
+    {% if debug %}
+        <li><a href="http://127.0.0.1:8000/admin/" id="admin-link" class="administration">
+            <span class="icon fa-wrench">Administration</span></a></li>
+    {% endif %}
 {% endblock %}
 
 {% block content %}

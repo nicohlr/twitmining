@@ -14,6 +14,7 @@ from twitmining.util.score import Scorer
 from twitmining.util.preprocessing import preprocess_tweet
 from socialmining.settings import DEBUG
 
+
 def log_in(request):
     """
     View for the root page, allows user to sign in to access the website
@@ -38,9 +39,9 @@ def log_in(request):
             return redirect('home')
         else:
             form = ConnectionForm()
-            error = False
 
     return render(request, './twitmining/login.html', {'form': form, 'error': error})
+
 
 def log_out(request):
     """
@@ -49,26 +50,37 @@ def log_out(request):
     logout(request)
     return redirect('/')
 
+
 def sign_up(request):
     """
     View for the signup page, allows user to create an account
     """
+    password_error = False
+    email_error = False
+    username_error = False
     error = False
 
     if request.method == "POST":
         form = InscriptionForm(request.POST)
+
         if form.is_valid():
             email = form.cleaned_data["email"]
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
             confirmed_password = form.cleaned_data["confirmed_password"]
-            if password == confirmed_password:
+
+            if User.objects.filter(email=email).exists():
+                email_error = True
+            if User.objects.filter(username=username).exists():
+                username_error = True
+            if password != confirmed_password:
+                password_error = True
+
+            if not password_error and not username_error and not email_error:
                 User.objects.create_user(username=username, password=password, email=email)
                 user = authenticate(username=username, password=password)
                 login(request, user)
                 return redirect('home')
-            else:
-                error = True
 
     else:
         if request.user.is_authenticated:
@@ -76,7 +88,14 @@ def sign_up(request):
         else:
             form = InscriptionForm()
 
-    return render(request, './twitmining/signup.html', {'form': form, 'error': error})
+    error = True if password_error or email_error or username_error else False
+    print(error)
+    return render(request, './twitmining/signup.html', {'form': form,
+                                                        'error': error,
+                                                        'username_error': username_error,
+                                                        'email_error': email_error,
+                                                        'password_error': password_error})
+
 
 @login_required(login_url='/')
 def home(request):
@@ -105,7 +124,8 @@ def home(request):
     else:
         form = QueryForm()
 
-    return render(request, './twitmining/home.html', {'form': form})
+    return render(request, './twitmining/home.html', {'form': form, 'debug': DEBUG})
+
 
 @login_required(login_url='/')
 def query(request):

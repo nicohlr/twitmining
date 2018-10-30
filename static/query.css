@@ -20,13 +20,15 @@
     body section div#column1 {
         text-align: center;
         display: block;
-        margin-left: 15vw;
+        margin-left: 17vw;
+        margin-right: 17vw;
 
     }
     body section div#column2 {
         text-align: center;
         display: block;
-        margin-left: 15vw;
+        margin-left: 17vw;
+        margin-right: 17vw;
     }
 }
 
@@ -61,5 +63,21 @@
     color: #fff;
 }
 #nav ul li a.logout:hover span::before {
-    color: #FF9F1C;
+    color: #F44708;
+}
+
+#logo {
+    text-align: center;
+}
+
+#logo p.slogan {
+    text-align: center;
+    border: #2ecc71 1px solid;
+    background-color: #2ecc71;
+    border-radius: 5px;
+}
+
+#logo p I.slogantext {
+    padding: 10px;
+    color: black;
 }

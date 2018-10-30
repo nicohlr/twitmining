@@ -21,7 +21,7 @@ body{
     float: left; 
     margin-left: 25%; 
     width: 20%; 
-    margin-top: 3.5%;
+    margin-top: 3%;
   }
 
   div.signup {
@@ -92,19 +92,19 @@ body{
   
   .btn{
     background:#2ecc71;
-    width:125px;
+    width:50%;
     padding-top:5px;
     padding-bottom:5px;
     color:white;
     border-radius:4px;
-    border: #27ae60 1px solid;
-    
+    border: #2ecc71 1px solid;
     margin-top:20px;
     margin-bottom:20px;
     float:left;
     margin-left:16px;
     font-weight:800;
     font-size:0.8em;
+    -webkit-appearance: none;
   }
   
   .btn:hover {
@@ -113,20 +113,30 @@ body{
   
   .btn2 {
     float:left;
-    background:#3498db;
-    width:125px;  padding-top:5px;
+    background: #F44708;
+    width:35.5%;  
+    padding-top:5px;
     padding-bottom:5px;
     color:white;
     border-radius:4px;
-    border: #2980b9 1px solid;
-    
+    border: #F44708 1px solid;
     margin-top:20px;
     margin-bottom:20px;
     margin-left:10px;
     font-weight:800;
     font-size:0.8em;
+    -webkit-appearance: none;
   }
   
   .btn2:hover { 
-  background:#3594D2; 
+  background: rgb(244, 16, 8); 
+  }
+
+  div.error {
+    text-align: center !important;
+    color:  rgb(244, 16, 8);
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-weight: bold;
   }

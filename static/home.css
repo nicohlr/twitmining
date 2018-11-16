@@ -1,6 +1,7 @@
 div.search_button {
     display: inline-block; 
-    margin-top: 5%; 
+    margin-top: 5%;
+    margin-bottom: 5%;
     width: 100%;
 }
 
@@ -17,49 +18,96 @@ section div p.about_text {
 }
 
 @media screen and (min-width: 736px) {
+    
     #main section div#col1 {
         float: left;
-        margin-left: 4%;
+        margin: 1% 0 0 4%;
         width: 20%;
     }
     
     #main section div#col2 {
         float: right;
-        margin-right: 4%;
+        margin: 1% 4% 0 0;
         width: 70%;
+    }
+    #main section div#col1 .size {
+        font-size: 80%;
+    }
+
+    #main section div#col2 .lang {
+        font-size: 80%;
     }
 }
 
 
 @media screen and (max-width: 736px) and (min-width: 364px) {
+
+    #main section div h3.alt {
+        font-size: 6vw;
+    } 
+
     #main section div#col1 {
         float: left;
-        margin-left: 4%;
+        margin: 1% 0 0 4%;
         width: 30%;
     }
     
     #main section div#col2 {
         float: right;
-        margin-right: 4%;
+        margin: 1% 4% 0 0;
         width: 60%;
+    }
+
+    #main section div#col1 .size {
+        font-size: 80%;
+    }
+
+    #main section div#col2 .lang {
+        font-size: 80%;
     }
 }
 
 @media screen and (max-width: 364px) {
+
+    #main section div h3.alt {
+        font-size: 5vw;
+    } 
+
     #main section div#col1 {
         float: left;
-        margin-left: 4%;
+        margin: 1% 0 0 4%;
+        width: 55%;
     }
     
     #main section div#col2 {
         float: right;
-        margin-right: 4%;
-        width: 30%;
+        margin: 1% 4% 0 0;
+        width: 35%;
+    }
+
+    #main section div .keyword {
+        font-size: 60%;
+    }
+
+    #main section div#col1 .size {
+        font-size: 50%;
+    }
+
+    #main section div#col2 .lang {
+        font-size: 50%;
     }
 }
 
 #main section div#col1 input {
     width: 100%;
+    margin: 0;
+    height: 2.8em;
+}
+
+#main section div#col2 select#id_language {
+    width: 100%;
+    margin: 0;
+    height: 2.8em;
 }
 
 #nav ul li a.logout:hover {
@@ -112,4 +160,8 @@ div textarea#id_message {
 
 header.contact {
     margin: 0 0 1em 0 !important;
+}
+
+#main section#top {
+    padding: 12vh 7% 0 7%;
 }

@@ -22,7 +22,7 @@
 
     <div id="main">
 
-        <section id="top" class="one dark cover" style="padding: 7%">
+        <section id="top" class="one dark cover">
 
             <div class="container">
 
@@ -38,17 +38,17 @@
                         {% for field in form_search %}
                             {% if forloop.counter0 == 1 %}
                                 <div id="col1">
-                                    <label class="label_field" for="{{ field.name }}">{{ field.label }}:</label>
+                                    <label class="size" for="{{ field.name }}">{{ field.label }}:</label>
                                     {{ field }}
                                 </div>
                             {% elif forloop.counter0 == 2 %}
                                 <div id="col2">
-                                    <label class="label_field" for="{{ field.name }}">{{ field.label }}:</label>
+                                    <label class="lang" for="{{ field.name }}">{{ field.label }}:</label>
                                     {{ field }}
                                 </div>
                             {% else %}
-                                    <label class="label_field" for="{{ field.name }}">{{ field.label }}:</label>
-                                    {{ field }}
+                                <label class="keyword" for="{{ field.name }}">{{ field.label }}:</label>
+                                {{ field }}
                             {% endif %}
                         {% endfor %}<br>
                         <br><br>

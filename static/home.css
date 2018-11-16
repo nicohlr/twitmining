@@ -16,19 +16,50 @@ section div p.about_text {
     text-align:justify
 }
 
-#main section div#col1 {
-    float: left;
-    margin-left: 4%;
+@media screen and (min-width: 736px) {
+    #main section div#col1 {
+        float: left;
+        margin-left: 4%;
+        width: 20%;
+    }
+    
+    #main section div#col2 {
+        float: right;
+        margin-right: 4%;
+        width: 70%;
+    }
 }
 
-#main section div#col2 {
-    float: right;
-    margin-right: 4%;
-    width: 40vw;
+
+@media screen and (max-width: 736px) and (min-width: 364px) {
+    #main section div#col1 {
+        float: left;
+        margin-left: 4%;
+        width: 30%;
+    }
+    
+    #main section div#col2 {
+        float: right;
+        margin-right: 4%;
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 364px) {
+    #main section div#col1 {
+        float: left;
+        margin-left: 4%;
+    }
+    
+    #main section div#col2 {
+        float: right;
+        margin-right: 4%;
+        width: 30%;
+    }
 }
 
 #main section div#col1 input {
-    width: auto;
+    width: 100%;
 }
 
 #nav ul li a.logout:hover {

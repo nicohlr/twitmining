@@ -1,8 +1,8 @@
 # <img src="./img/logo.png" width="4%">&nbsp;&nbsp;Twitmining
 
-<p align="justify">
+
 This is a web application of data mining for analyzing a twitter feed using keywords developed with the [django](https://www.djangoproject.com/) python framework.
-</p>
+
 
 ## Access
 

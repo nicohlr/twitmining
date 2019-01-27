@@ -1,12 +1,16 @@
 # <img src="./img/logo.png" width="4%">&nbsp;&nbsp;Twitmining
 
+<p align="justify">
 This is a web application of data mining for analyzing a twitter feed using keywords developed with the [django](https://www.djangoproject.com/) python framework.
+</p>
 
 ## Access
 
 You can use the web application by clicking on this link: http://twitmining.pythonanywhere.com/
 
+<p align="justify">
 Please notes that you'll have to create an account if you do not already have one. After that, you can sign in a start mining !
+</p>
 
 ## Project introduction
 
@@ -19,6 +23,8 @@ Imagine that it is possible to capture this information, to keep only the parts 
 
 ## How to use
 
+<p align="justify">
 Just enter your keyword in the search bar as you can see below. Then, the web application will do the remaining work by requesting twitter API, sort all received tweets by relevance and display it to you with a timeline of relevant tweets :
+</p>
 
 <img src="./img/home_screen.png" width="49.7%"/>&nbsp;<img src="./img/query_screen.png" width="49.7%"/>
